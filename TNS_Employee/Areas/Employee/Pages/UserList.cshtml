@@ -1,0 +1,437 @@
+﻿@page
+@model TNS_Employee.Areas.Employee.Pages.UserListModel
+@{
+
+}
+<!-- DataTables -->
+<link href="~/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/libs/datatables/css/dataTables.min.css" rel="stylesheet" type="text/css" />
+
+<style>
+    .tns-field-name {
+        width: 120px;
+    }
+</style>
+<div style="width:100%; margin:-20px 0 0 -20px">
+    <div style="padding:5px; font-weight:bold; font-size:13px">
+        <a href="~/Index" style="text-decoration:none; color:#4c4c4c">Home</a>
+        <span class="uil-angle-double-right"></span>
+        <span style="color:maroon">Danh sách User</span>
+        
+    </div>
+</div>
+<div class="row mb-2">
+    <div class="col-md-3">
+        <div class="float-md-end mb-3" style="font-size:26px; font-weight:bold">
+            USERS
+        </div>
+
+    </div>
+    <div class="col-md-6">
+        <div class="input-group mb-3">
+            <input id="txt_Search" type="text" class="form-control" placeholder="Search">
+            <button class="btn btn-primary" type="submit" onclick="LV_LoadData_Ajax()">Tìm kiếm</button>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="float-md-end mb-3">
+            @if (Model.UserLogin.Role.IsAdd)
+            {
+                <button onclick="Modal_Update_Show(0,'New')" class="btn btn-primary waves-effect waves-light">Thêm mới</button>
+            }
+        </div>
+    </div>
+
+</div>
+<div style="height:10px"></div>
+
+<table id="datatable-grid" class="table table-striped table-bordered" style="border-collapse: collapse; border-spacing: 0; width: 100%;font-size:14px">
+    <thead>
+        <tr>
+            <th style="width:40px" class="text-center text-light bg-primary">STT</th>
+            <th style="width:70px" class="text-center text-light bg-primary">User Name</th>
+            <th style="width:100px" class="text-center text-light bg-primary">Mã nhân viên</th>
+            <th class="text-center text-light bg-primary">Nhân viên</th>
+            <th style="width:150px" class="text-center text-light bg-primary">Đăng nhập lần cuối</th>
+            <th style="width:150px" class="text-center text-light bg-primary">Đăng nhập sai</th>
+            <th class="text-center text-light bg-primary"></th>
+        </tr>
+    </thead>
+    <tbody id="LV_Data">
+    </tbody>
+</table>
+
+<div id="LV_Waiting" style="display:none">
+    <div class='text-center'>
+        <div class='spinner-border text-primary m-1' role='status'>
+            <span class='sr-only'>Loading...</span>
+        </div>
+        <div class="spinner-border text-secondary m-1" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+        <div class="spinner-border text-success m-1" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div style="cursor:pointer" onclick="MessageLog_Show()">
+        <i class="uil-apple"></i>
+    </div>
+    <div id="txt_MessageLog" class="row" style="display:none; padding:20px">
+    </div>
+</div>
+<div id="Modal_Area">
+    <div class="modal fade" id="Modal_Update_Form" tabindex="-1" aria-labelledby="Modal_Update_Label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="Modal_Update_Title">Thông tin</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div id="Modal_Update_Body" class="mb-3 row">
+                        <div style="display:none">
+                            <div id="Modal_Update_lbl_ItemIndex"></div>
+                            <div id="Modal_Update_lbl_UserKey"></div>
+                            <div id="Modal_Update_lbl_EmployeeKey"></div>
+                        </div>
+                        <div id="Modal_Update_Waiting" style="display:none">
+                            <div class='text-center'>
+                                <div class='spinner-border text-primary m-1' role='status'>
+                                    <span class='sr-only'>Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display:none" id="Modal_Update_ViewInfo">
+                            <div class="input-group mb-2">
+                                <span class="input-group-text tns-field-name">User Name</span>
+                                <input id="Modal_Update_txt_UserName" type="text" class="form-control" aria-label="Employee ID">
+                            </div>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text tns-field-name">Mật khẩu</span>
+                                <input id="Modal_Update_txt_Password" type="password" aria-label="Last name" class="form-control">
+                            </div>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text tns-field-name">Ghi chú</span>
+                                <input id="Modal_Update_txt_Description" type="text" aria-label="Last name" class="form-control">
+                            </div>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text tns-field-name">Nhân viên</span>
+                                <input id="Modal_Update_txt_EmployeeID" type="text" class="form-control" aria-label="Employee ID">
+                                <input id="Modal_Update_txt_EmployeeName" type="text" class="form-control" aria-label="Employee Name">
+                                <button class="input-group-text" onclick="CollectInfo()">
+                                    <span id="Modal_Update_btn_Waiting" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display:none"></span>
+                                    <span id="Modal_Update_btn_Search" class="uil-search-alt"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div>
+                        <button style="display:none" id="Modal_Update_btn_Save" type="submit" class="btn btn-primary" onclick="Modal_Update_Save()">Save</button>
+                        <button style="display:none" id="Modal_Update_btn_Del" type="submit" class="btn btn-primary" onclick="Modal_Update_Del()">Del</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</div>
+
+<div style="display:none">
+</div>
+<!-- Required datatable js -->
+<script src="~/libs/jquery/jquery.min.js"></script>
+<script src="~/libs/bootstrap/js/bootstrap.min.js"></script>
+<script src="~/libs/datatables/js/dataTables.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        LV_LoadData_Ajax();
+    });
+    var _Table = $('#datatable-grid').DataTable({
+        "ordering": false,
+        "iDisplayLength": 25,
+        "displayStart": 0,
+        "bFilter": false,
+        "bLengthChange": false,
+        "bInfo": false
+    });
+
+</script>
+<script>
+    function MessageLog_Show() {
+        $("#txt_MessageLog").css("display", "");
+    }
+    function LV_LoadData_Ajax() {
+        var zSearch = $('#txt_Search').val();
+        $("#LV_Waiting").css("display", "");
+        var zDataRequest = { "searchContent": zSearch };
+        $("#LV_Data").html("");
+        $.ajax({
+            type: 'POST',
+            url: "/Employee/UserList?handler=Search",
+            data: JSON.stringify(zDataRequest),
+            contentType: "application/json",
+            dataType: "json",
+        })
+            .done(function (dataResponse) {
+                LV_DisplayData(dataResponse);
+            })
+            .fail(function (error) {
+                alert(error.responseText);
+            });
+    }
+    function LV_DisplayData(DataView) {
+        var zStyle_RecordView = "";
+        //$("#txt_MessageLog").html(JSON.stringify(DataView));
+        var n = DataView.length;
+        var zContent = "";
+        var zContinuous = 1;
+        _Table.destroy();
+        if (n == 1) {
+            if (DataView[0].id == "ERROR") {
+                zContinuous = 0;
+                $("#LV_Waiting").css("display", "none");
+                $("#txt_MessageLog").html(DataView[i].name);
+            }
+        }
+        if (zContinuous == 1) {
+            for (i = 0; i < n; i++) {
+                zContent += "       <tr id='LV_Index_" + i + "'>";
+                zContent += "           <td class='align-middle' style='" + zStyle_RecordView + "' >";
+                zContent += "               <div> " + (i + 1) + " </div>";
+                zContent += "               <div style='display:none'>";
+                zContent += "                   <div id='LV_lbl_UserKey_" + i + "'>" + DataView[i].key + "</div>";
+                zContent += "               </div>";
+                zContent += "           </td>";
+                zContent += "           <td class='align-middle' style='" + zStyle_RecordView + "'>" + DataView[i].name + "</td>";
+                zContent += "           <td class='align-middle' style='" + zStyle_RecordView + "'>" + DataView[i].employeeID + "</td>";
+                zContent += "           <td class='align-middle' style='" + zStyle_RecordView + "'>" + DataView[i].employeeName + "</td>";
+                zContent += "           <td class='align-middle' style='" + zStyle_RecordView + "'>" + DataView[i].lastLoginDate + "</td>";
+                zContent += "           <td class='align-middle text-end' style='" + zStyle_RecordView + "'>" + DataView[i].failedPassword + "</td>";
+                zContent += "           <td class='align-middle'>";
+                zContent += "               <div class='btn-group mr-2' role='group' aria-label='First group'>";
+                zContent += DataView[i].btnAction;
+                zContent += "               </div>";
+                zContent += "           </td>";
+                zContent += "       </tr>";
+            }
+            $("#LV_Waiting").css("display", "none");
+            $("#LV_Data").html(zContent);
+            _Table = new DataTable('#datatable-grid', {
+                "ordering": false,
+                "iDisplayLength": 25,
+                "displayStart": 0,
+                "bFilter": false,
+                "bLengthChange": false,
+                "bInfo": false
+            });
+
+        }
+    }
+</script>
+<script>
+    function Modal_Update_Show(Index, Action) {
+        var zItemKey = "";
+
+        $("#Modal_Update_Form").modal('show');
+
+        $("#Modal_Update_ViewInfo").css("display", "none");
+        $("#Modal_Update_Waiting").css("display", "");
+
+        $("#Modal_Update_btn_Save").css("display", "none");
+        $("#Modal_Update_btn_Del").css("display", "none");
+        switch (Action) {
+            case "New":
+                $("#Modal_Update_Title").text("Tạo mới thông tin User");
+                $("#Modal_Update_btn_Save").css("display", "");
+                break;
+            case "Edit":
+                $("#Modal_Update_Title").text("Thay đổi thông tin User");
+                $("#Modal_Update_btn_Save").css("display", "");
+                zItemKey = $("#LV_lbl_UserKey_" + Index).text();
+                break;
+            case "Del":
+                $("#Modal_Update_Title").text("Xóa thông tin User");
+                $("#Modal_Update_btn_Del").css("display", "");
+                zItemKey = $("#LV_lbl_UserKey_" + Index).text();
+                break;
+        }
+
+        var zDataRequest = { "userKey": zItemKey };
+        $.ajax({
+            type: 'POST',
+            url: "/Employee/UserList?handler=GetInfo",
+            data: JSON.stringify(zDataRequest),
+            contentType: "application/json",
+            dataType: "json",
+        })
+            .done(function (dataResponse) {
+                Modal_Update_DisplayInfo(Index, Action, dataResponse);
+            })
+            .fail(function (error) {
+                alert(error.responseText);
+            });
+
+    }
+    function Modal_Update_DisplayInfo(Index, Action, DataInfo) {
+        $("#txt_MessageLog").html(JSON.stringify(DataInfo));
+        $("#Modal_Update_lbl_ItemIndex").text(Index);
+        $("#Modal_Update_lbl_UserKey").text(DataInfo.key);
+        $("#Modal_Update_lbl_EmployeeKey").text(DataInfo.employeeKey);
+
+        $("#Modal_Update_txt_UserName").val(DataInfo.name);
+        $("#Modal_Update_txt_Description").val(DataInfo.description);
+
+        $("#Modal_Update_txt_EmployeeID").val(DataInfo.employeeID);
+        $("#Modal_Update_txt_EmployeeName").val(DataInfo.employeeName);
+        
+        
+        $("#Modal_Update_ViewInfo").css("display", "");
+        $("#Modal_Update_Waiting").css("display", "none");
+
+        $("#Modal_Update_btn_" + Action).css("display", "");
+
+    }
+    function Modal_Update_Save() {
+
+        var zIndex = $("#Modal_Update_lbl_ItemIndex").text();
+        var zEmployeeKey = $("#Modal_Update_lbl_EmployeeKey").text();
+        var zUserKey = $("#Modal_Update_lbl_UserKey").text();
+
+        var zUserName = $("#Modal_Update_txt_UserName").val();
+        var zPassword = $("#Modal_Update_txt_Password").val();
+        var zDescription = $("#Modal_Update_txt_Description").val();
+        var zEmployeeID = $("#Modal_Update_txt_EmployeeID").val();
+        var zEmployeeName = $("#Modal_Update_txt_EmployeeName").val();
+
+        $("#Modal_Update_Waiting").css("display", "");
+        $("#Modal_Update_btn_Save").css("display", "none");
+        var zDataUpdate = {
+            "key": zUserKey,
+            "name": zUserName,
+            "password": zPassword,
+            "description": zDescription,
+            "employeeKey": zEmployeeKey
+        };
+        $("#txt_MessageLog").html(JSON.stringify(zDataUpdate));
+        $.ajax({
+            type: 'POST',
+            url: "/Employee/UserList?handler=Update",
+            data: JSON.stringify(zDataUpdate),
+            contentType: "application/json",
+            dataType: "json",
+        })
+            .done(function (dataResponse) {
+                $("#Modal_Update_Waiting").css("display", "none");
+                $("#Modal_Update_btn_Save").css("display", "");
+                //$("#txt_MessageLog").html(JSON.stringify(dataResponse));
+                if (dataResponse.id != "ERROR") {
+                    if (dataResponse.code == "200") {
+                        var zCurrentRow = $("#LV_Index_" + zIndex);
+                        zCurrentRow.find("td:eq(1)").text(dataResponse.name);
+                        zCurrentRow.find("td:eq(2)").text(zEmployeeID);
+                        zCurrentRow.find("td:eq(3)").text(zEmployeeName);
+                    }
+                    if (dataResponse.code == "201") {
+                        LV_LoadData_Ajax();
+                    }
+                }
+                else {
+                    alert("Error Update !");
+                    $("#txt_MessageLog").html("error : " + dataResponse.name);
+                }
+            })
+            .fail(function (r) {
+                $("#txt_MessageLog").html("error : " + r.responseText);
+            })
+            
+        $("#Modal_Update_Form").modal('hide');
+    }
+    function Modal_Update_Del() {
+        var zIndex = $("#Modal_Update_lbl_ItemIndex").text();
+        var zUserKey = $("#Modal_Update_lbl_UserKey").text();
+
+        $("#Modal_Update_Waiting").css("display", "");
+        $("#Modal_Update_btn_Save").css("display", "none");
+        var zDataUpdate = {
+            "userKey": zUserKey
+        };
+        // $("#txt_MessageLog").html(JSON.stringify(zDataUpdate));
+        $.ajax({
+            type: 'POST',
+            url: "/Employee/UserList?handler=Delete",
+            data: JSON.stringify(zDataUpdate),
+            contentType: "application/json",
+            dataType: "json",
+        })
+            .done(function (dataResponse) {
+                $("#Modal_Update_Waiting").css("display", "none");
+                $("#Modal_Update_btn_Save").css("display", "");
+                $("#txt_MessageLog").html(JSON.stringify(dataResponse));
+                if (dataResponse.id != "ERROR") {
+                    if (dataResponse.code == "200") {
+                        var zCurrentRow = $("#LV_Index_" + zIndex);
+                        zCurrentRow.find("td:eq(0)").text("");
+                        zCurrentRow.find("td:eq(1)").text("");
+                        zCurrentRow.find("td:eq(2)").text("");
+                        zCurrentRow.find("td:eq(3)").text("");
+                        zCurrentRow.find("td:eq(4)").text("");
+                        zCurrentRow.find("td:eq(5)").text("");
+                        zCurrentRow.find("td:eq(6)").text("");
+                    }
+                }
+                else {
+                    alert("Error Update !");
+                    $("#txt_MessageLog").html("error : " + dataResponse.name);
+                }
+            })
+            .fail(function (r) {
+                $("#txt_MessageLog").html("error : " + r.responseText);
+            })
+
+        $("#Modal_Update_Form").modal('hide');
+    }
+</script>
+<script>
+    function CollectInfo() {
+        var zEmployeeID = $("#Modal_Update_txt_EmployeeID").val();
+        $("#Modal_Update_btn_Waiting").css("display", "");
+        $("#Modal_Update_btn_Search").css("display", "none");
+        var zDataRequest = { "employeeID": zEmployeeID };
+        $.ajax({
+            type: 'POST',
+            url: "/Employee/UserList?handler=CollectInfo",
+            data: JSON.stringify(zDataRequest),
+            contentType: "application/json",
+            dataType: "json",
+        })
+            .done(function (dataResponse) {
+                $("#Modal_Update_btn_Waiting").css("display", "none");
+                $("#Modal_Update_btn_Search").css("display", "");
+                $("#Modal_Update_txt_EmployeeName").val(dataResponse.name);
+                if (dataResponse.id != "ERROR") {
+                    $("#Modal_Update_lbl_EmployeeKey").text(dataResponse.key)
+                }
+                else {
+                    $("#txt_MessageLog").html("error : " + dataResponse.name);
+                }
+
+            })
+            .fail(function (r) {
+                $("#txt_MessageLog").html("error : " + r.responseText);
+            })
+    }
+</script>
+<script>
+    function LV_GotoPage(Key)
+    {
+        window.location = "SetRoles?Key=" + Key;
+    }
+</script>
+

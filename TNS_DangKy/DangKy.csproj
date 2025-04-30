@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="Areas\DangKy\Pages\API.cshtml.cs" />
+		<Compile Remove="Areas\DangKy\Pages\TaskAll.cshtml.cs" />
+		<Compile Remove="Areas\DangKy\Pages\TaskDelivery.cshtml.cs" />
+		<Compile Remove="Areas\DangKy\Pages\TaskEdit.cshtml.cs" />
+		<Compile Remove="Areas\DangKy\Pages\TaskNew.cshtml.cs" />
+		<Compile Remove="Areas\DangKy\Pages\TaskProcess.cshtml.cs" />
+		<Compile Remove="Areas\DangKy\Pages\TaskReceive.cshtml.cs" />
+		<Compile Remove="Areas\DangKy\Pages\TasksEmployee.cshtml.cs" />
+		<Compile Remove="Areas\DangKy\Pages\TaskShared.cshtml.cs" />
+		<Compile Remove="Areas\DangKy\Pages\TaskSharedProcess.cshtml.cs" />
+		<Compile Remove="Areas\DangKy\Pages\UploadFile.cshtml.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Remove="Areas\DangKy\Pages\API.cshtml" />
+		<Content Remove="Areas\DangKy\Pages\TaskAll.cshtml" />
+		<Content Remove="Areas\DangKy\Pages\TaskDelivery.cshtml" />
+		<Content Remove="Areas\DangKy\Pages\TaskEdit.cshtml" />
+		<Content Remove="Areas\DangKy\Pages\TaskNew.cshtml" />
+		<Content Remove="Areas\DangKy\Pages\TaskProcess.cshtml" />
+		<Content Remove="Areas\DangKy\Pages\TaskReceive.cshtml" />
+		<Content Remove="Areas\DangKy\Pages\TasksEmployee.cshtml" />
+		<Content Remove="Areas\DangKy\Pages\TaskShared.cshtml" />
+		<Content Remove="Areas\DangKy\Pages\TaskSharedProcess.cshtml" />
+		<Content Remove="Areas\DangKy\Pages\UploadFile.cshtml" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\TNS.DBConnection\TNS.DBConnection.csproj" />
+	</ItemGroup>
+
+
+
+</Project>

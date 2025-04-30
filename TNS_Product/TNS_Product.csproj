@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Areas\Product\Pages\API.cshtml.cs" />
+    <Compile Remove="Areas\Product\Pages\TaskAll.cshtml.cs" />
+    <Compile Remove="Areas\Product\Pages\TaskDelivery.cshtml.cs" />
+    <Compile Remove="Areas\Product\Pages\TaskEdit.cshtml.cs" />
+    <Compile Remove="Areas\Product\Pages\TaskNew.cshtml.cs" />
+    <Compile Remove="Areas\Product\Pages\TaskProcess.cshtml.cs" />
+    <Compile Remove="Areas\Product\Pages\TaskReceive.cshtml.cs" />
+    <Compile Remove="Areas\Product\Pages\TasksEmployee.cshtml.cs" />
+    <Compile Remove="Areas\Product\Pages\TaskShared.cshtml.cs" />
+    <Compile Remove="Areas\Product\Pages\TaskSharedProcess.cshtml.cs" />
+    <Compile Remove="Areas\Product\Pages\UploadFile.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Areas\Product\Pages\API.cshtml" />
+    <Content Remove="Areas\Product\Pages\TaskAll.cshtml" />
+    <Content Remove="Areas\Product\Pages\TaskDelivery.cshtml" />
+    <Content Remove="Areas\Product\Pages\TaskEdit.cshtml" />
+    <Content Remove="Areas\Product\Pages\TaskNew.cshtml" />
+    <Content Remove="Areas\Product\Pages\TaskProcess.cshtml" />
+	<Content Remove="Areas\Product\Pages\TaskReceive.cshtml" />
+	<Content Remove="Areas\Product\Pages\TasksEmployee.cshtml" />
+    <Content Remove="Areas\Product\Pages\TaskShared.cshtml" />
+    <Content Remove="Areas\Product\Pages\TaskSharedProcess.cshtml" />
+    <Content Remove="Areas\Product\Pages\UploadFile.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TNS.DBConnection\TNS.DBConnection.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Areas\Product\Pages\ChiTietSanPham.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+
+
+</Project>

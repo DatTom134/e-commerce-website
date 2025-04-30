@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="Areas\GioHang\Pages\API.cshtml.cs" />
+		<Compile Remove="Areas\GioHang\Pages\TaskAll.cshtml.cs" />
+		<Compile Remove="Areas\GioHang\Pages\TaskDelivery.cshtml.cs" />
+		<Compile Remove="Areas\GioHang\Pages\TaskEdit.cshtml.cs" />
+		<Compile Remove="Areas\GioHang\Pages\TaskNew.cshtml.cs" />
+		<Compile Remove="Areas\GioHang\Pages\TaskProcess.cshtml.cs" />
+		<Compile Remove="Areas\GioHang\Pages\TaskReceive.cshtml.cs" />
+		<Compile Remove="Areas\GioHang\Pages\TasksEmployee.cshtml.cs" />
+		<Compile Remove="Areas\GioHang\Pages\TaskShared.cshtml.cs" />
+		<Compile Remove="Areas\GioHang\Pages\TaskSharedProcess.cshtml.cs" />
+		<Compile Remove="Areas\GioHang\Pages\UploadFile.cshtml.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Remove="Areas\GioHang\Pages\API.cshtml" />
+		<Content Remove="Areas\GioHang\Pages\TaskAll.cshtml" />
+		<Content Remove="Areas\GioHang\Pages\TaskDelivery.cshtml" />
+		<Content Remove="Areas\GioHang\Pages\TaskEdit.cshtml" />
+		<Content Remove="Areas\GioHang\Pages\TaskNew.cshtml" />
+		<Content Remove="Areas\GioHang\Pages\TaskProcess.cshtml" />
+		<Content Remove="Areas\GioHang\Pages\TaskReceive.cshtml" />
+		<Content Remove="Areas\GioHang\Pages\TasksEmployee.cshtml" />
+		<Content Remove="Areas\GioHang\Pages\TaskShared.cshtml" />
+		<Content Remove="Areas\GioHang\Pages\TaskSharedProcess.cshtml" />
+		<Content Remove="Areas\GioHang\Pages\UploadFile.cshtml" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\TNS.DBConnection\TNS.DBConnection.csproj" />
+	</ItemGroup>
+
+
+
+</Project>

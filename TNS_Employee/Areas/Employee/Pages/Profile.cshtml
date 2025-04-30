@@ -1,0 +1,336 @@
+﻿@page
+@model TNS_Employee.Areas.Employee.Pages.ProfileModel
+@{
+}
+<div>
+    <div class="row">
+        <div style="height:70px; background-color:dodgerblue"></div>
+        <div style="height:180px; background-color:dodgerblue">
+            <div class="row">
+                <div class="col-2" style="padding:0px 0 0 25px; cursor:pointer">
+                    <form asp-action="UploadImage" method="post" enctype="multipart/form-data">
+                        <div> <input hidden asp-for="@Model.EmployeeLogin.EmployeeKey" /> </div>
+                        <img class="rounded-circle" id="OpenImgUpload" width="170" height="170" src="@Model.EmployeeLogin.PhotoPath"
+                             alt="Header Avatar">
+                        <input id="imgupload" name="file" type="file" style="display:none" class="form-control" onchange="this.form.submit()">
+                    </form>
+                </div>
+                <div class="col-10" style="padding-left:30px">
+                    <div style="font-weight:bold;font-size:18px;color:white">@Model.EmployeeLogin.LastName @Model.EmployeeLogin.FirstName</div>
+                    <div style="font-weight:bold;font-size:14px;color:white; padding-top:5px">
+                        @Model.EmployeeLogin.PositionName
+                    </div>
+                    <div style="font-size:14px;color:white; padding-top:5px">
+                        @Model.EmployeeLogin.Note
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="padding:20px 34px 20px 34px">
+        <div style="@Model.ViewReturn"><a href="~/Employee/EmployeeList"><img src="~/images/return-88.png" style="width:24px" /></a></div>
+        <div class="card">
+            <div class="card-body">
+                @{
+                    var zBirthday = "";
+                    var zStartingDate = "";
+                    var zGender = "Nam";
+                    if (Model.EmployeeLogin.Birthday != null)
+                    {
+                        zBirthday = @Model.EmployeeLogin.Birthday.Value.ToString("dd/MM/yyyy");
+                    }
+                    if (Model.EmployeeLogin.StartingDate != null)
+                    {
+                        zStartingDate = @Model.EmployeeLogin.StartingDate.Value.ToString("dd/MM/yyyy");
+                    }
+                    if (Model.EmployeeLogin.Gender == 0)
+                    {
+                        zGender = "Nữ";
+                    }
+                }
+                <div class="row" style="font-weight:bold; font-size:16px; color:#2d6eae">
+                    <div class="col-10">THÔNG TIN CÁ NHÂN</div>
+                    <div class="col-2 float-end" style="cursor:pointer" data-bs-toggle="modal" data-bs-target="#PersonalModal">  <i class="uil uil-ellipsis-h"></i></div>
+
+                </div>
+                <div class="row">
+                    <div class="col-4">Họ và Tên</div>
+                    <div class="col-4">Ngày sinh</div>
+                    <div class="col-4">Phone</div>
+                </div>
+                <div class="row">
+                    <div class="col-4"><b>@Model.EmployeeLogin.LastName @Model.EmployeeLogin.FirstName</b> </div>
+                    <div class="col-4"><b>@zBirthday</b> </div>
+                    <div class="col-4"><b>@Model.EmployeeLogin.MobiPhone</b></div>
+                </div>
+                <div class="row" style="padding-top:10px">
+                    <div class="col-4">Giới tính</div>
+                    <div class="col-4">Tình trạng hôn nhân</div>
+                    <div class="col-4">Email cá nhân</div>
+                </div>
+                <div class="row">
+                    <div class="col-4"><b>@zGender</b></div>
+                    <div class="col-4"><b>@Model.EmployeeLogin.MaritalStatusName</b></div>
+                    <div class="col-4"><b>@Model.EmployeeLogin.Email</b></div>
+                </div>
+                <div class="modal fade" id="PersonalModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Thông tin cá nhân</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <form asp-action="PersonalSave" method="post">
+                                <div class="modal-body">
+
+                                    <div> <input hidden asp-for="@Model.EmployeeLogin.EmployeeKey" /> </div>
+
+                                    <div class="mb-3 row">
+                                        <label for="example-text-input" class="col-md-2 col-form-label">Họ và Tên</label>
+                                        <div class="col-md-10">
+                                            <div class="input-group">
+                                                <input asp-for="@Model.EmployeeLogin.LastName" class="form-control" type="text">
+                                                <span asp-validation-for="@Model.EmployeeLogin.LastName"></span>
+                                                <input asp-for="@Model.EmployeeLogin.FirstName" class="form-control" type="text">
+                                                <span asp-validation-for="@Model.EmployeeLogin.FirstName"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3 row">
+                                        <label for="example-date-input" class="col-md-2 col-form-label">Ngày sinh</label>
+                                        <div class="col-md-4">
+                                            <input asp-for="@Model.EmployeeLogin.Birthday" class="form-control" type="date">
+                                            <span asp-validation-for="@Model.EmployeeLogin.Birthday"></span>
+                                        </div>
+                                        <label for="example-date-input" class="col-md-2 col-form-label">Số điện thoại</label>
+                                        <div class="col-md-4">
+                                            <input asp-for="@Model.EmployeeLogin.MobiPhone" class="form-control" type="text">
+                                            <span asp-validation-for="@Model.EmployeeLogin.MobiPhone"></span>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="example-text-input" class="col-md-2 col-form-label">Giới tính</label>
+                                        <div class="col-md-4">
+                                            <select asp-for="@Model.EmployeeLogin.Gender" class="form-select w-sm">
+                                                <option value="0">Nữ</option>
+                                                <option value="1">Nam</option>
+                                            </select>
+                                        </div>
+                                        <label for="example-text-input" class="col-md-2 col-form-label">Tình trạng</label>
+                                        <div class="col-md-4">
+                                            <select asp-for="@Model.EmployeeLogin.MaritalStatusKey" class="form-select w-sm">
+                                                <option value="0">-----</option>
+                                                <option value="1">Độc thân</option>
+                                                <option value="2">Đã kết hôn</option>
+                                                <option value="3">Đã li dị</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="example-text-input" class="col-md-2 col-form-label">Email cá nhân</label>
+                                        <div class="col-md-4">
+                                            <input asp-for="@Model.EmployeeLogin.Email" class="form-control" type="text">
+                                            <span asp-validation-for="@Model.EmployeeLogin.Email"></span>
+                                        </div>
+                                        <label for="example-text-input" class="col-md-2 col-form-label"></label>
+                                        <div class="col-md-4">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Update</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="row border-bottom" style="padding:10px 0 10px 0"></div>
+                <div class="row" style="font-weight:bold; font-size:16px; color:#2d6eae; padding-top:10px">
+                    <div class="col-10">HỒ SƠ NHÂN SỰ </div>
+                    <div class="col-2 float-end" style="cursor:pointer" data-bs-toggle="modal" data-bs-target="#WorkingModal">  <i class="uil uil-ellipsis-h"></i></div>
+                </div>
+                <div class="row">
+                    <div class="col-4">Mã nhân viên</div>
+                    <div class="col-4">Mã IPCAST</div>
+                    <div class="col-4">Email Agribank</div>
+                </div>
+                <div class="row">
+                    <div class="col-4"><b>@Model.EmployeeLogin.EmployeeID</b></div>
+                    <div class="col-4"><b>@Model.EmployeeLogin.UserIPCAST</b></div>
+                    <div class="col-4"><b>@Model.EmployeeLogin.CompanyEmail</b></div>
+                </div>
+                <div class="row" style="padding-top:10px">
+                    <div class="col-4">Bộ phận/Hội sở</div>
+                    <div class="col-4">Ngày vào làm</div>
+                    <div class="col-4">Hình thức HĐ</div>
+                </div>
+                <div class="row">
+                    <div class="col-4"><b>@Model.EmployeeLogin.DepartmentName</b></div>
+                    <div class="col-4"><b>@zStartingDate</b></div>
+                    <div class="col-4"><b>@Model.EmployeeLogin.ContractTypeName</b></div>
+                </div>
+                <div class="row" style="padding-top:10px">
+                    <div class="col-4">Chức vụ</div>
+                    <div class="col-4">Công việc</div>
+                    <div class="col-4">Báo cáo cho</div>
+                </div>
+                <div class="row">
+                    <div class="col-4"><b>@Model.EmployeeLogin.PositionName</b></div>
+                    <div class="col-4"><b>@Model.EmployeeLogin.JobName</b></div>
+                    <div class="col-4"><b>@Model.EmployeeLogin.ReportToName</b></div>
+                </div>
+                <div class="modal fade" id="WorkingModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Thông tin làm việc : @Model.EmployeeLogin.LastName @Model.EmployeeLogin.FirstName </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <form asp-action="WorkingSave" method="post">
+                                <div class="modal-body">
+
+                                    <div> <input hidden asp-for="@Model.EmployeeLogin.EmployeeKey" /> </div>
+
+                                    <div class="mb-3 row">
+                                        <label for="example-text-input" class="col-md-2 col-form-label">Mã nhân viên</label>
+                                        <div class="col-md-4">
+                                            <input asp-for="@Model.EmployeeLogin.EmployeeID" class="form-control" type="text">
+                                            <span asp-validation-for="@Model.EmployeeLogin.EmployeeID"></span>
+                                        </div>
+                                        <label for="example-text-input" class="col-md-2 col-form-label">Mã IPCAST</label>
+                                        <div class="col-md-4">
+                                            <input asp-for="@Model.EmployeeLogin.UserIPCAST" class="form-control" type="text">
+                                            <span asp-validation-for="@Model.EmployeeLogin.UserIPCAST"></span>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="example-date-input" class="col-md-2 col-form-label">Email</label>
+                                        <div class="col-md-4">
+                                            <input asp-for="@Model.EmployeeLogin.CompanyEmail" class="form-control" type="text">
+                                            <span asp-validation-for="@Model.EmployeeLogin.CompanyEmail"></span>
+                                        </div>
+                                        <label for="example-date-input" class="col-md-2 col-form-label">Bộ phận</label>
+                                        <div class="col-md-4">
+                                            <select asp-for="@Model.EmployeeLogin.DepartmentKey" class="form-select w-sm">
+                                                @foreach (string[] zItem in Model.ListDepartment)
+                                                {
+                                                    <option value="@zItem[0]">@zItem[1]</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="example-text-input" class="col-md-2 col-form-label">Ngày vào làm</label>
+                                        <div class="col-md-4">
+                                            <input asp-for="@Model.EmployeeLogin.StartingDate" class="form-control" type="date">
+                                            <span asp-validation-for="@Model.EmployeeLogin.StartingDate"></span>
+                                        </div>
+                                        <label for="example-text-input" class="col-md-2 col-form-label">Hình thức HĐ</label>
+                                        <div class="col-md-4">
+                                            <input asp-for="@Model.EmployeeLogin.ContractTypeName" class="form-control" type="text">
+                                            <span asp-validation-for="@Model.EmployeeLogin.ContractTypeName"></span>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="example-text-input" class="col-md-2 col-form-label">Chức vụ</label>
+                                        <div class="col-md-4">
+                                            <input asp-for="@Model.EmployeeLogin.PositionName" class="form-control" type="text">
+                                            <span asp-validation-for="@Model.EmployeeLogin.PositionName"></span>
+                                        </div>
+                                        <label for="example-text-input" class="col-md-2 col-form-label">Báo cáo cho</label>
+                                        <div class="col-md-4">
+                                            <input asp-for="@Model.EmployeeLogin.ReportToID" class="form-control" type="text">
+                                            <span asp-validation-for="@Model.EmployeeLogin.ReportToID"></span>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="example-text-input" class="col-md-2 col-form-label">Công việc</label>
+                                        <div class="col-md-10">
+                                            <textarea asp-for="@Model.EmployeeLogin.JobName" class="form-control"> </textarea>
+                                            <span asp-validation-for="@Model.EmployeeLogin.JobName"></span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Update</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row border-bottom" style="padding:10px 0 10px 0"></div>
+                <form asp-action="ChangePass" method="post">
+                    <div>
+                        <input hidden asp-for="@Model.EmployeeLogin.EmployeeKey" />
+                    </div>
+
+                    <div class="row" style="font-weight:bold; font-size:16px; color:#2d6eae;padding-top:10px">
+                        <div class="col-5" style="color:red; font-weight:normal; font-size:14px; font-style:italic">
+                            @Model.Message
+                        </div>
+                        <div class="col-5">
+                            <div class="float-end text-danger" style="font-size:14px;">Đổi mật khẩu</div>
+                        </div>
+                        <div class="col-2" style="cursor:pointer" data-bs-toggle="modal" data-bs-target="#ChangePassModal"> <i class="uil uil-ellipsis-h"></i></div>
+                    </div>
+                    <div class="modal fade" id="ChangePassModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Thay đổi mật khẩu</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Mật khẩu cũ</label>
+                                        <input asp-for="@Model.ChangePass.OldPassword" class="form-control" type="password">
+                                        <span asp-validation-for="@Model.ChangePass.OldPassword"></span>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Mật khẩu mới</label>
+                                        <input asp-for="@Model.ChangePass.NewPassword" class="form-control" type="password">
+                                        <span asp-validation-for="@Model.ChangePass.NewPassword"></span>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Change</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="row border-bottom" style="padding:10px 0 10px 0"></div>
+                <div style="font-weight:bold; font-size:16px; color:#2d6eae; padding-top:20px">THÔNG TIN LIÊN LẠC</div>
+                <div class="row">
+                    <div class="col-12">Địa chỉ thường trú</div>
+                </div>
+                <div class="row">
+                    <div class="col-12"><b>@Model.EmployeeLogin.ContactAddress</b></div>
+                </div>
+                <div class="row" style="padding-top:10px">
+                    <div class="col-12">Địa chỉ tạm trú</div>
+                </div>
+                <div class="row">
+                    <div class="col-12"><b>@Model.EmployeeLogin.TemporaryAddress</b></div>
+                </div>
+
+                <div class="row border-bottom" style="padding:10px 0 10px 0"></div>
+                <div style="font-weight:bold; font-size:16px; color:#2d6eae; padding-top:20px">NĂNG LỰC - HỌC VẤN</div>
+                <div class="row border-bottom" style="padding:10px 0 10px 0"></div>
+                <div style="font-weight:bold; font-size:16px; color:#2d6eae; padding-top:20px">QUÁ TRÌNH CÔNG TÁC</div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Layouts/minible/libs/tns-simple/js/jquery-3.7.0.js"></script>
+<script>
+    $('#OpenImgUpload').click(function () { $('#imgupload').trigger('click'); });
+</script>

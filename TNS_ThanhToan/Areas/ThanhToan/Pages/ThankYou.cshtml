@@ -1,0 +1,104 @@
+﻿@page
+@model TNS_ThanhToan.Areas.ThanhToan.Pages.ThankYouModel
+@{
+    Layout = null;
+}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #f8f8f8;
+        }
+        .container {
+            margin-top: 30px;
+            max-width: 800px;
+            text-align: center;
+        }
+        .order-summary {
+            background-color: #ffffff;
+            border: 1px solid #e3e3e3;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: left;
+        }
+        .thank-you {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .order-details h5 {
+            font-weight: bold;
+            color: #333;
+        }
+        .order-details .info {
+            font-size: 1em;
+            color: #555;
+        }
+        .order-info p, .order-info li {
+            font-size: 1em;
+            color: #333;
+        }
+        .product-list li {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95em;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #e63946;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="thank-you">
+            Cảm ơn bạn. Đơn hàng của bạn đã được nhận.
+        </div>
+
+        <div class="order-summary">
+            <h5>Chi tiết đơn hàng</h5>
+            <div class="order-details mt-3">
+                <ul class="product-list list-unstyled">
+                    <!-- List of Products -->
+                </ul>
+                <div class="info mt-3">
+                    <p><strong>Mã đơn hàng:</strong> <span id="orderNumber" class="highlight"></span></p>
+                    <p><strong>Ngày:</strong> <span id="orderDate" class="highlight"></span></p>
+                    <p><strong>Tổng cộng:</strong> <span id="orderTotal" class="highlight"></span> VND</p>
+                    <p><strong>Phương thức thanh toán:</strong> <span id="paymentMethod" class="highlight"></span></p>
+                </div>
+            </div>
+        </div>
+
+        <a href="/" class="btn btn-primary mt-4">Quay về trang chủ</a>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Sample data retrieval from localStorage
+        const orderInfo = JSON.parse(localStorage.getItem('orderInfo'));
+
+        if (orderInfo) {
+            document.getElementById('orderNumber').textContent = orderInfo.orderNumber || 'N/A';
+            document.getElementById('orderDate').textContent = orderInfo.orderDate || 'N/A';
+            document.getElementById('orderTotal').textContent = orderInfo.total || 'N/A';
+            document.getElementById('paymentMethod').textContent = orderInfo.paymentMethod || 'N/A';
+            document.getElementById('billingAddress').textContent = orderInfo.address || 'N/A';
+
+            const productList = document.querySelector('.product-list');
+            orderInfo.products.forEach(product => {
+                const li = document.createElement('li');
+                li.innerHTML = `${product.name} <span class="highlight">x ${product.quantity} - ${product.price} VND</span>`;
+                productList.appendChild(li);
+            });
+        }
+    </script>
+</body>

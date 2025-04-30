@@ -1,0 +1,952 @@
+﻿@page
+@model TNS_GioHang.Areas.GioHang.Pages.ChiTietGioHangModel
+@{
+}
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="theme-color" content="#000f8f" />
+		<link rel="canonical" href="https://tnsolution.vn"/>
+		<meta name='revisit-after' content='2 days' />
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">	
+		<meta name="robots" content="follow, noindex">
+		<meta name="description" content="">
+		<title>Giỏ hàng		</title>
+		<meta name="keywords" content="Giỏ hàng, TNSolution.vn - Điện tử & Robot, TNSolution.vn"/>		
+		
+
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Giỏ hàng">
+	<!--Đưa logo vào đây-->
+	<!--<meta property="og:image" content="">
+	<meta property="og:image:secure_url" content="https://bizweb.dktcdn.net/100/522/662/themes/958202/assets/logo.png?1728231402463">-->
+
+<meta property="og:description" content="">
+<meta property="og:url" content="https://tnsolution.vn/cart">
+<meta property="og:site_name" content="TNSolution.vn - Điện tử & Robot">	
+		<link rel="icon" href="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/favicon.png?1728231402463" type="image/x-icon" />
+		<link rel="preload" as="script" href="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/jquery.js?1728231402463" />
+		<script src="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/jquery.js?1728231402463" type="text/javascript"></script>
+		<link rel="preload" as="script" href="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/cookie.js?1728231402463" />
+		<script src="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/cookie.js?1728231402463" type="text/javascript"></script>
+		<link rel="preload" as="script" href="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/swiper.js?1728231402463" />
+		<script src="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/swiper.js?1728231402463" type="text/javascript"></script>
+		<link rel="preload" as="script" href="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/lazy.js?1728231402463" />
+		<script src="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/lazy.js?1728231402463" type="text/javascript"></script>
+		<link rel="preload" as='style' type="text/css" href="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/main.scss.css?1728231402463">
+
+<link rel="preload" as='style'  type="text/css" href="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/bootstrap-4-3-min.css?1728231402463">
+
+<link href="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/bootstrap-4-3-min.css?1728231402463" rel="stylesheet" type="text/css" media="all" />
+<link href="~/dist/css/main.css" rel="stylesheet" type="text/css" media="all" />
+
+
+<link href="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/breadcrumb_style.scss.css?1728231402463" rel="stylesheet" type="text/css" media="all" />
+
+<link href="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/paginate.scss.css?1728231402463" rel="stylesheet" type="text/css" media="all" />
+<link href="~/dist/css/cartpage.css" rel="stylesheet" type="text/css" media="all" />
+
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+
+
+
+	@* <script>
+	var Bizweb = Bizweb || {};
+	Bizweb.store = 'dientuTNSolution.mysapo.net';
+	Bizweb.id = 522662;
+	Bizweb.theme = {"id":958202,"name":"Dola Phone","role":"main"};
+	Bizweb.template = 'cart';
+	if(!Bizweb.fbEventId)  Bizweb.fbEventId = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+	var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+				return v.toString(16);
+			});		
+</script>
+<script>
+	(function () {
+		function asyncLoad() {
+			var urls = [];
+			for (var i = 0; i < urls.length; i++) {
+				var s = document.createElement('script');
+				s.type = 'text/javascript';
+				s.async = true;
+				s.src = urls[i];
+				var x = document.getElementsByTagName('script')[0];
+				x.parentNode.insertBefore(s, x);
+			}
+		};
+		window.attachEvent ? window.attachEvent('onload', asyncLoad) : window.addEventListener('load', asyncLoad, false);
+	})();
+</script>
+
+
+<script>
+	window.BizwebAnalytics = window.BizwebAnalytics || {};
+	window.BizwebAnalytics.meta = window.BizwebAnalytics.meta || {};
+	window.BizwebAnalytics.meta.currency = 'VND';
+	window.BizwebAnalytics.tracking_url = '/s';
+
+	var meta = {};
+	
+	
+	for (var attr in meta) {
+	window.BizwebAnalytics.meta[attr] = meta[attr];
+	}
+</script>
+
+	
+		<script src="/dist/js/stats.min.js?v=96f2ff2"></script>
+	 *@
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-QX6975439G"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-QX6975439G'); </script>
+<script>
+
+	window.enabled_enhanced_ecommerce = false;
+
+</script>
+
+
+
+
+
+
+<script>
+	var eventsListenerScript = document.createElement('script');
+	eventsListenerScript.async = true;
+	
+	eventsListenerScript.src = "/dist/js/store_events_listener.min.js?v=8ee4227";
+	
+	document.getElementsByTagName('head')[0].appendChild(eventsListenerScript);
+</script>						
+@* <script type="application/ld+json">
+        {
+        " context": "http://schema.org",
+        " type": "BreadcrumbList",
+        "itemListElement": 
+        [
+            {
+                " type": "ListItem",
+                "position": 1,
+                "item": 
+                {
+                  " id": "https://tnsolution.vn",
+                  "name": "Trang chủ"
+                }
+            },
+      
+        
+      
+      
+      
+      
+      {
+                " type": "ListItem",
+                "position": 2,
+                "item": 
+                {
+                  " id": "https://tnsolution.vn/cart",
+                  "name": "Giỏ hàng"
+                }
+            }
+      
+    
+        ]
+        }
+</script> *@	
+	</head>
+	<body>
+		<div class="opacity_menu"></div>
+<!-- <div class="banner-top d-none d-md-block" style="background: #000000">
+	<div class="container">
+		<a href="/collections/all" title="Banner top">
+			<picture>
+
+				<source 
+						media="(max-width: 567px)"
+						srcset="//bizweb.dktcdn.net/thumb/large/100/522/662/themes/958202/assets/banner_top.jpg?1728231402463">
+				<img alt="Banner top" width="1270" height="47" src="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/banner_top.jpg?1728231402463">
+			</picture>	
+
+		</a>
+	</div>
+</div> -->
+
+
+<div class="bodywrap">
+			<section class="bread-crumb">
+	
+	<div class="container">
+		
+		<ul class="breadcrumb" >					
+			<li class="home">
+				<a  href="/" ><span >Trang chủ</span></a>						
+				<span class="mr_lr">&nbsp;<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="svg-inline--fa fa-chevron-right fa-w-10"><path fill="currentColor" d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" class=""></path></svg>&nbsp;</span>
+			</li>
+			
+			<li><strong ><span>Giỏ hàng</span></strong></li>
+			
+		</ul>
+	</div>
+</section> 
+<section class="main-cart-page main-container col1-layout">
+	<div class="main container cartpcstyle">
+		<div class="wrap_background_aside margin-bottom-40" style="display: inline-block;   width: 100%;">
+			<div class="header-cart d-none">
+				<div class="title-block-page">
+					<h1 class="title_cart">
+						<span>Giỏ hàng của bạn</span>
+					</h1>
+				</div>
+			</div>
+			<div class="row">
+				
+				<div class="col-xl-12 col-lg-12 Col-12 margin-bottom-40" style="background-color: #FFFFFF; border-radius:5px">
+					<h5>Lưu ý</h5>
+					<li>Quý Khách nên tìm hiểu kỹ thông tin sản phẩm, chính sách <a href="https://tnsolution.vn" target="_blank">Bảo Hành</a> & <a href="https://tnsolution.vn/chinh-sach-doi-hang" target="_blank">Đổi Hàng</a> trước khi đặt hàng, khi nhận hàng Quý Khách nên khui hàng cẩn thận <span style="color:#ff0000;">giữ lại đầy đủ phụ kiện, bao bì, vỏ hộp không rách, móp méo</span> phòng trường hợp đổi hàng khi không đúng nhu cầu.</li>
+					<li>Quý Khách sẽ nhận được điện thoại xác nhận đơn hàng từ TNSolution.vn <span style="color:#ff0000;">trong 24h kể từ khi đặt hàng</span>, xin Quý Khách vui lòng chờ để nhân viên có thời gian kiểm tra tình trạng hàng hoá, cửa hàng sẽ cố gắng liên hệ nhanh nhất có thể!</li>
+                  <br><i>Xin chân thành cảm ơn Quý Khách đã tin tưởng và ủng hộ TNSolution.vn!</i>
+				</div></br>
+
+				<div class="col-xl-8 col-lg-8 col-12 col-cart-left">
+					
+					<div class="cart-page d-xl-block d-none" bis_skin_checked="1">
+						<div class="drawer__inner" bis_skin_checked="1">
+							<div class="CartPageContainer" bis_skin_checked="1">
+								@* Load Cart data *@
+								<div class="cart ajaxcart cartpage">																		
+								</div>
+							</div>
+						</div>
+					</div>
+							<div class="cart-mobile-page d-block d-xl-none" bis_skin_checked="1">
+								<div class="CartMobileContainer" bis_skin_checked="1"><div class="cart--empty-message" bis_skin_checked="1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 201.387 201.387" style="enable-background:new 0 0 201.387 201.387;" xml:space="preserve"> <g> <g> <path d="M129.413,24.885C127.389,10.699,115.041,0,100.692,0C91.464,0,82.7,4.453,77.251,11.916    c-1.113,1.522-0.78,3.657,0.742,4.77c1.517,1.109,3.657,0.78,4.768-0.744c4.171-5.707,10.873-9.115,17.93-9.115    c10.974,0,20.415,8.178,21.963,19.021c0.244,1.703,1.705,2.932,3.376,2.932c0.159,0,0.323-0.012,0.486-0.034    C128.382,28.479,129.679,26.75,129.413,24.885z"></path> </g> </g> <g> <g> <path d="M178.712,63.096l-10.24-17.067c-0.616-1.029-1.727-1.657-2.927-1.657h-9.813c-1.884,0-3.413,1.529-3.413,3.413    s1.529,3.413,3.413,3.413h7.881l6.144,10.24H31.626l6.144-10.24h3.615c1.884,0,3.413-1.529,3.413-3.413s-1.529-3.413-3.413-3.413    h-5.547c-1.2,0-2.311,0.628-2.927,1.657l-10.24,17.067c-0.633,1.056-0.648,2.369-0.043,3.439s1.739,1.732,2.97,1.732h150.187    c1.231,0,2.364-0.662,2.97-1.732S179.345,64.15,178.712,63.096z"></path> </g> </g> <g> <g> <path d="M161.698,31.623c-0.478-0.771-1.241-1.318-2.123-1.524l-46.531-10.883c-0.881-0.207-1.809-0.053-2.579,0.423    c-0.768,0.478-1.316,1.241-1.522,2.123l-3.509,15c-0.43,1.835,0.71,3.671,2.546,4.099c1.835,0.43,3.673-0.71,4.101-2.546    l2.732-11.675l39.883,9.329l-6.267,26.795c-0.43,1.835,0.71,3.671,2.546,4.099c0.263,0.061,0.524,0.09,0.782,0.09    c1.55,0,2.953-1.062,3.318-2.635l7.045-30.118C162.328,33.319,162.176,32.391,161.698,31.623z"></path> </g> </g> <g> <g> <path d="M102.497,39.692l-3.11-26.305c-0.106-0.899-0.565-1.72-1.277-2.28c-0.712-0.56-1.611-0.816-2.514-0.71l-57.09,6.748    c-1.871,0.222-3.209,1.918-2.988,3.791l5.185,43.873c0.206,1.737,1.679,3.014,3.386,3.014c0.133,0,0.27-0.009,0.406-0.024    c1.87-0.222,3.208-1.918,2.988-3.791l-4.785-40.486l50.311-5.946l2.708,22.915c0.222,1.872,1.91,3.202,3.791,2.99    C101.379,43.261,102.717,41.564,102.497,39.692z"></path> </g> </g> <g> <g> <path d="M129.492,63.556l-6.775-28.174c-0.212-0.879-0.765-1.64-1.536-2.113c-0.771-0.469-1.696-0.616-2.581-0.406L63.613,46.087    c-1.833,0.44-2.961,2.284-2.521,4.117l3.386,14.082c0.44,1.835,2.284,2.964,4.116,2.521c1.833-0.44,2.961-2.284,2.521-4.117    l-2.589-10.764l48.35-11.626l5.977,24.854c0.375,1.565,1.775,2.615,3.316,2.615c0.265,0,0.533-0.031,0.802-0.096    C128.804,67.232,129.932,65.389,129.492,63.556z"></path> </g> </g> <g> <g> <path d="M179.197,64.679c-0.094-1.814-1.592-3.238-3.41-3.238H25.6c-1.818,0-3.316,1.423-3.41,3.238l-6.827,133.12    c-0.048,0.934,0.29,1.848,0.934,2.526c0.645,0.677,1.539,1.062,2.475,1.062h163.84c0.935,0,1.83-0.384,2.478-1.062    c0.643-0.678,0.981-1.591,0.934-2.526L179.197,64.679z M22.364,194.56l6.477-126.293h143.701l6.477,126.293H22.364z"></path> </g> </g> <g> <g> <path d="M126.292,75.093c-5.647,0-10.24,4.593-10.24,10.24c0,5.647,4.593,10.24,10.24,10.24c5.647,0,10.24-4.593,10.24-10.24    C136.532,79.686,131.939,75.093,126.292,75.093z M126.292,88.747c-1.883,0-3.413-1.531-3.413-3.413s1.531-3.413,3.413-3.413    c1.882,0,3.413,1.531,3.413,3.413S128.174,88.747,126.292,88.747z"></path> </g> </g> <g> <g> <path d="M75.092,75.093c-5.647,0-10.24,4.593-10.24,10.24c0,5.647,4.593,10.24,10.24,10.24c5.647,0,10.24-4.593,10.24-10.24    C85.332,79.686,80.739,75.093,75.092,75.093z M75.092,88.747c-1.882,0-3.413-1.531-3.413-3.413s1.531-3.413,3.413-3.413    s3.413,1.531,3.413,3.413S76.974,88.747,75.092,88.747z"></path> </g> </g> <g> <g> <path d="M126.292,85.333h-0.263c-1.884,0-3.413,1.529-3.413,3.413c0,0.466,0.092,0.911,0.263,1.316v17.457    c0,12.233-9.953,22.187-22.187,22.187s-22.187-9.953-22.187-22.187V88.747c0-1.884-1.529-3.413-3.413-3.413    s-3.413,1.529-3.413,3.413v18.773c0,15.998,13.015,29.013,29.013,29.013s29.013-13.015,29.013-29.013V88.747    C129.705,86.863,128.176,85.333,126.292,85.333z"></path> </g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </svg><p>Không có sản phẩm nào trong giỏ hàng của bạn</p></div></div>
+							</div>
+				</div>
+				<div class="col-xl-4 col-lg-4 col-12 col-cart-right">
+					
+					<form method="post" novalidate="" class="formVAT">
+						<h5>
+							Thời gian gửi hàng đi.
+						</h5>
+						<div>
+							Quý khách xin lưu ý các <span style="color:#ff0000;">đơn hàng đặt sau 15h00 TNSolution.vn sẽ gửi hàng vào ngày hôm sau</span>, cửa hàng nghỉ vào ngày Chủ Nhật, các yêu cầu giao hàng đặc biệt xin Quý Khách liên hệ bộ phận bán hàng qua Zalo <a href="https://zalo.me/2464553386666780926" target="_blank">TNSolutionvn - Điện tử và Robot</a>.
+						</div>
+					<!--	<h4>
+							Thời gian giao hàng
+						</h4>
+						<div class="timedeli-modal">
+							<fieldset class="input_group date_pick">
+								<input type="text" placeholder="Chọn ngày" readonly id="date" name="attributes[shipdate]" class="date_picker" required>
+							</fieldset>
+							<fieldset class="input_group date_time">
+								<select name="time" class="timeer timedeli-cta" >
+									<option selected>Chọn thời gian</option>
+									
+									
+									<option value="08h00 - 12h00">08h00 - 12h00</option>
+									
+									<option value=" 14h00 - 18h00"> 14h00 - 18h00</option>
+									
+									<option value=" 19h00 - 21h00"> 19h00 - 21h00</option>
+									
+								</select>
+							</fieldset>
+						</div>-->
+						
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+	(function($){"use strict";$.ajaxChimp={responses:{"We have sent you a confirmation email":0,"Please enter a valueggg":1,"An email address must contain a single  ":2,"The domain portion of the email address is invalid (the portion after the  : )":3,"The username portion of the email address is invalid (the portion before the  : )":4,"This email address looks fake or invalid. Please enter a real email address":5},translations:{en:null},init:function(selector,options){$(selector).ajaxChimp(options)}};$.fn.ajaxChimp=function(options){$(this).each(function(i,elem){var form=$(elem);var email=form.find("input[type=email]");var label=form.find("label[for="+email.attr("id")+"]");var settings=$.extend({url:form.attr("action"),language:"en"},options);var url=settings.url.replace("/post?","/post-json?").concat("&c=?");form.attr("novalidate","true");email.attr("name","EMAIL");form.submit(function(){var msg;function successCallback(resp){if(resp.result==="success"){msg="We have sent you a confirmation email";label.removeClass("error").addClass("valid");email.removeClass("error").addClass("valid")}else{email.removeClass("valid").addClass("error");label.removeClass("valid").addClass("error");var index=-1;try{var parts=resp.msg.split(" - ",2);if(parts[1]===undefined){msg=resp.msg}else{var i=parseInt(parts[0],10);if(i.toString()===parts[0]){index=parts[0];msg=parts[1]}else{index=-1;msg=resp.msg}}}catch(e){index=-1;msg=resp.msg}}if(settings.language!=="en"&&$.ajaxChimp.responses[msg]!==undefined&&$.ajaxChimp.translations&&$.ajaxChimp.translations[settings.language]&&$.ajaxChimp.translations[settings.language][$.ajaxChimp.responses[msg]]){msg=$.ajaxChimp.translations[settings.language][$.ajaxChimp.responses[msg]]}label.html(msg);label.show(2e3);if(settings.callback){settings.callback(resp)}}var data={};var dataArray=form.serializeArray();$.each(dataArray,function(index,item){data[item.name]=item.value});$.ajax({url:url,data:data,success:successCallback,dataType:"jsonp",error:function(resp,text){console.log("mailchimp ajax submit error: "+text)}});var submitMsg="Submitting...";if(settings.language!=="en"&&$.ajaxChimp.translations&&$.ajaxChimp.translations[settings.language]&&$.ajaxChimp.translations[settings.language]["submit"]){submitMsg=$.ajaxChimp.translations[settings.language]["submit"]}label.html(submitMsg).show(2e3);return false})});return this}})(jQuery);
+
+</script>
+
+
+<a href="#"  class="backtop"  title="Lên đầu trang">
+	<svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="angle-up" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="svg-inline--fa fa-angle-up fa-w-10"><path fill="currentColor" d="M168.5 164.2l148 146.8c4.7 4.7 4.7 12.3 0 17l-19.8 19.8c-4.7 4.7-12.3 4.7-17 0L160 229.3 40.3 347.8c-4.7 4.7-12.3 4.7-17 0L3.5 328c-4.7-4.7-4.7-12.3 0-17l148-146.8c4.7-4.7 12.3-4.7 17 0z" class=""></path></svg>
+</a>
+
+<div class="fixed-bottom-mobile d-lg-none d-block">
+	<ul>
+		<li>
+			<a href="/">
+				<img width="25" height="25" src="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/icon_fixed_1.png?1728231402463" alt="Trang chủ">
+				<span>Trang chủ</span>
+			</a>
+		</li>
+		<li class="menu-bar">
+			<a href="javascript:void(0)" >
+				<img width="25" height="25" src="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/icon_fixed_2.png?1728231402463" alt="Danh mục">
+				<span>Danh mục</span>
+			</a>
+		</li>
+		
+		
+		<li>
+			<a href="/cart">
+				<img width="25" height="25" src="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/icon_fixed_3.png?1728231402463" alt="Khuyến mãi">
+				<span>Giỏ hàng</span>
+				<span class="count count_item_pr">4</span>
+			</a>
+		</li>
+		<li>
+			<a href="/san-pham-yeu-thich">
+				<img width="25" height="25" src="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/icon_fixed_4.png?1728231402463" alt="Đăng nhập">
+				<span>Yêu thích</span>
+				<span class="count js-wishlist-count js-wishlist-count-mobile">0</span>
+			</a>
+		</li>
+		<li>
+			<a href="/so-sanh-san-pham">
+				<img width="25" height="25" src="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/icon_fixed_5.png?1728231402463" alt="Liên hệ">
+				<span>So sánh</span>
+				<span class="count headerCompareCount2">0</span>
+			</a>
+		</li>
+	</ul>
+</div><link rel="preload" as="style" href="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/ajaxcart.scss.css?1728231402463"  type="text/css">
+<link href="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/ajaxcart.scss.css?1728231402463" rel="stylesheet" type="text/css" media="all" />
+<div class="backdrop__body-backdrop___1rvky"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div id="popupCartModal" class="modal fade" role="dialog">
+		</div>
+		<div style="visibility:hidden; position: absolute; z-index: -1; bottom: 0; left: 0;">
+	<svg xmlns="http://www.w3.org/2000/svg">
+		<symbol id="icon-cart">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+				<path fill="#fff" d="M253.3 35.1c6.1-11.8 1.5-26.3-10.2-32.4s-26.3-1.5-32.4 10.2L117.6 192H32c-17.7 0-32 14.3-32 32s14.3 32 32 32L83.9 463.5C91 492 116.6 512 146 512H430c29.4 0 55-20 62.1-48.5L544 256c17.7 0 32-14.3 32-32s-14.3-32-32-32H458.4L365.3 12.9C359.2 1.2 344.7-3.4 332.9 2.7s-16.3 20.6-10.2 32.4L404.3 192H171.7L253.3 35.1zM192 304v96c0 8.8-7.2 16-16 16s-16-7.2-16-16V304c0-8.8 7.2-16 16-16s16 7.2 16 16zm96-16c8.8 0 16 7.2 16 16v96c0 8.8-7.2 16-16 16s-16-7.2-16-16V304c0-8.8 7.2-16 16-16zm128 16v96c0 8.8-7.2 16-16 16s-16-7.2-16-16V304c0-8.8 7.2-16 16-16s16 7.2 16 16z"/>
+			</svg>
+		</symbol>
+	</svg>
+	<svg xmlns="http://www.w3.org/2000/svg">
+		<symbol id="icon-detail">
+			<svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 20 18" fill="none">
+					<path d="M1 3H4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"></path>
+					<path d="M1 15H4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"></path>
+					<path d="M12 3L19 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round"></path>
+					<path d="M12 15L19 15" stroke="#fff" stroke-width="1.5" stroke-linecap="round"></path>
+					<path d="M1 9H2.5H3.25M13 9H7" stroke="#fff" stroke-width="1.5" stroke-linecap="round"></path>
+					<rect x="6" y="1" width="4" height="4" rx="1.5" stroke="#fff" stroke-width="1.5"></rect>
+					<rect x="6" y="13" width="4" height="4" rx="1.5" stroke="#fff" stroke-width="1.5"></rect>
+					<rect x="15" y="7" width="4" height="4" rx="1.5" stroke="#fff" stroke-width="1.5"></rect>
+				</svg>
+		</symbol>
+	</svg>
+	<svg xmlns="http://www.w3.org/2000/svg">
+		<symbol id="icon-quickview">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+				<path  fill="#000" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
+			</svg>
+		</symbol>
+	</svg>
+	<svg xmlns="http://www.w3.org/2000/svg">
+		<symbol id="icon-wishlist">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#ffffff" d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z"></path></svg>
+		</symbol>
+	</svg>
+	<svg xmlns="http://www.w3.org/2000/svg">
+		<symbol id="icon-wishlist-active">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#ff0000" d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z"></path></svg>
+		</symbol>
+	</svg>
+	<svg xmlns="http://www.w3.org/2000/svg">
+		<symbol id="icon-search">
+			<svg width="20" height="20" viewBox="0 0 20 20" fill="#000" xmlns="http://www.w3.org/2000/svg"> <path fill="#000" d="M14.1404 13.4673L19.852 19.1789C20.3008 19.6276 19.6276 20.3008 19.1789 19.852L13.4673 14.1404C12.0381 15.4114 10.1552 16.1835 8.09176 16.1835C3.6225 16.1835 0 12.5613 0 8.09176C0 3.6225 3.62219 0 8.09176 0C12.561 0 16.1835 3.62219 16.1835 8.09176C16.1835 10.1551 15.4115 12.038 14.1404 13.4673ZM0.951972 8.09176C0.951972 12.0356 4.14824 15.2316 8.09176 15.2316C12.0356 15.2316 15.2316 12.0353 15.2316 8.09176C15.2316 4.14797 12.0353 0.951972 8.09176 0.951972C4.14797 0.951972 0.951972 4.14824 0.951972 8.09176Z"></path> </svg>
+		</symbol>
+	</svg>
+	
+	<svg xmlns="http://www.w3.org/2000/svg">
+		<symbol id="icon-phone">
+			<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by  fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path fill="#000f8f" d="M280 0C408.1 0 512 103.9 512 232c0 13.3-10.7 24-24 24s-24-10.7-24-24c0-101.6-82.4-184-184-184c-13.3 0-24-10.7-24-24s10.7-24 24-24zm8 192a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm-32-72c0-13.3 10.7-24 24-24c75.1 0 136 60.9 136 136c0 13.3-10.7 24-24 24s-24-10.7-24-24c0-48.6-39.4-88-88-88c-13.3 0-24-10.7-24-24zM117.5 1.4c19.4-5.3 39.7 4.6 47.4 23.2l40 96c6.8 16.3 2.1 35.2-11.6 46.3L144 207.3c33.3 70.4 90.3 127.4 160.7 160.7L345 318.7c11.2-13.7 30-18.4 46.3-11.6l96 40c18.6 7.7 28.5 28 23.2 47.4l-24 88C481.8 499.9 466 512 448 512C200.6 512 0 311.4 0 64C0 46 12.1 30.2 29.5 25.4l88-24z"/></svg>
+		</symbol>
+	</svg>
+	<svg xmlns="http://www.w3.org/2000/svg">
+		<symbol id="icon-email">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by  fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path fill="#000f8f" d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>	
+
+		</symbol>
+	</svg>
+
+</div>
+<script>
+	$('.addThis_iconContact .item-contact,.addThis_listSharing .addThis_close').on('click', function(e){
+		if($('.addThis_listSharing').hasClass('active')){
+			$('.addThis_listSharing').removeClass('active');
+			$('.addThis_listSharing').fadeOut(150);				
+		}
+		else{		
+			$('.addThis_listSharing').fadeIn(100);
+			$('.addThis_listSharing').addClass('active');
+		}
+	});
+	$('.listSharing_overlay').on('click', function(e){
+		$('.addThis_listSharing').removeClass('active');
+		$('.addThis_listSharing').fadeOut(150);				
+	})
+</script>		
+</body>
+
+<script>
+	var isAuthenticated = @User.Identity.IsAuthenticated.ToString().ToLower();
+	var UserID = '';
+	var CartKey = '';
+	var Cart
+	var CartDetails = []
+	$(document).ready(function () {
+		awe_lazyloadImage();
+		LV_LoadData_Ajax();
+		if (isAuthenticated) {
+			var Email = "@User.FindFirst(System.Security.Claims.ClaimTypes.Email)?.Value";
+			var zDataRequest = {
+				"Email": Email,
+			};
+			$.ajax({
+				type: 'POST',
+				url: "/Product/SanPham?handler=GetUser",
+				data: JSON.stringify(zDataRequest),
+				contentType: "application/json",
+				dataType: "json",
+			})
+				.done(function (dataResponse) {
+					_DataView = dataResponse;
+					UserID = _DataView[0][0];
+					GetCart(UserID)
+				})
+				.fail(function (error) {
+					console.log(error)
+				});
+			bindAddToCartEvents()
+		}
+		else {
+			BindAddToCartEvents();
+			LoadCartPage(CartDetails);
+		}
+		RemoveItemCartHeader();
+	});
+</script>
+<script>
+	async function GetCart(UserID) {
+		const zDataRequest = { "UserID": UserID };
+		try {
+			const dataResponse = await $.ajax({
+				type: 'POST',
+				url: "/GioHang/ChiTietGioHang?handler=GetCart",
+				data: JSON.stringify(zDataRequest),
+				contentType: "application/json",
+				dataType: "json",
+			});
+			Cart = dataResponse;
+			CartKey = dataResponse[0][0];
+			await GetCartDetails(CartKey);
+		} catch (error) {
+			console.error(error);
+		}
+	}
+</script>
+<script>
+	async function GetCartDetails(CartKey) {
+		const zDataRequest = { "UserID": UserID };
+		try {
+			const dataResponse = await $.ajax({
+				type: 'POST',
+				url: "/GioHang/ChiTietGioHang?handler=GetCartDetails",
+				data: JSON.stringify(zDataRequest),
+				contentType: "application/json",
+				dataType: "json",
+			});
+			CartDetails = dataResponse;
+			show_Quantity_cart(CartDetails);
+			UpdateCartHeader(CartDetails);
+			LoadCartPage(CartDetails);
+		} catch (error) {
+			console.error(error);
+		}
+	}
+</script>
+<script>
+	function LV_LoadData_Ajax() {
+		var zDataRequest = {
+			"Search": '2', "statusKey": '1'
+		};
+		$.ajax({
+			type: 'POST',
+			url: "/Product/SanPham?handler=LoadData1",
+			data: JSON.stringify(zDataRequest),
+			contentType: "application/json",
+			dataType: "json",
+		})
+			.done(function (dataResponse) {
+				_DataView = dataResponse;
+				LV_DisplayData();
+				$("#LV_Waiting").css("display", "none");
+			})
+			.fail(function (error) {
+				alert('Error : ' + error.responseText);
+			});
+	}
+	function LV_DisplayData() {
+		var zStyle_RecordView = "";
+		var zContent = "";
+		var n = 0;
+		if (_DataView != null) {
+			n = _DataView.length;
+			if (_DataView[0][0] == "ERR") {
+				$("#txt_MessageLog").html(_DataView[0][1].name);
+				return;
+			}
+		}
+		for (let i = 0; i < n; i++) {
+			let data = _DataView[i];
+			zContent += `
+						<div class='col-xl-20 col-lg-3 col-sm-4 col-6 col-fix'>
+							<form action='' method='' class='variants product-action' data-cart-form data-id='${data[0]}' enctype='multipart/form-data' href='~/ChiTietSanPham/${data[0]}'>
+								<div class='product-thumbnail'>
+									<a class='image_thumb scale_hover' href='/ChiTietSanPham/${data[0]}' title='${data[1]}'>
+										<img width='234' height='234' class='lazyload image1 loaded' src='${data[4]}' data-src='~/images/Logo.png' alt='${data[1]}'>
+									</a>
+									<div class='tag-km'></div>
+									<input class='hidden' type='hidden' name='variantId' value='125640177' />
+									<div class='action'>
+										<button class='btn-cart btn-views add_to_cart' title='Thêm vào giỏ'>
+											<svg class='icon'><use xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='#icon-cart'></use></svg>
+										</button>
+									</div>
+								</div>
+								<div class='product-info'>
+									<h3 class='product-name'>
+										<a class='line-clamp line-clamp-2' href='~/ChiTietSanPham/${data[0]}' title='${data[1]}'>${data[1]}</a>
+									</h3>
+									<div class='price-box' data-price='${data[3]}'>${VND.format(data[3])}₫</div>
+									<div class='wishlish-compare'>
+										<a href='javascript:void(0)' class='setWishlist btn-wishlist' data-wish='bo-tay-dieu-khien-dual-usb-2-4g-wireless-joystick-gamepad-for-raspberry-pi' tabindex='0' title='Thêm vào yêu thích'>
+											<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
+												<path d='M244 84L255.1 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 0 232.4 0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84C243.1 84 244 84.01 244 84L244 84zM255.1 163.9L210.1 117.1C188.4 96.28 157.6 86.4 127.3 91.44C81.55 99.07 48 138.7 48 185.1V190.9C48 219.1 59.71 246.1 80.34 265.3L256 429.3L431.7 265.3C452.3 246.1 464 219.1 464 190.9V185.1C464 138.7 430.4 99.07 384.7 91.44C354.4 86.4 323.6 96.28 301.9 117.1L255.1 163.9z'></path>
+											</svg> Thích
+										</a>
+										<a href='javascript:void(0)' class='setCompare' data-compare='bo-tay-dieu-khien-dual-usb-2-4g-wireless-joystick-gamepad-for-raspberry-pi' data-type='Default' tabindex='0' title='Thêm vào so sánh'>
+											<span></span>So sánh
+										</a>
+									</div>
+								</div>
+							</form>
+						</div>`;
+		}
+		var zDataCurrent = $("#LV_DataBody").html();
+		$("#LV_DataBody").html(zDataCurrent + zContent);
+	}
+</script>
+<script>
+	function show_Quantity_cart(cart) {
+		let TotalQuantity = 0;
+		if (!cart || cart.length === 0) {
+			$('.count_item_pr').text(0);
+		}
+		else {
+			for (let i = 0; i < cart.length; i++) {
+				const Item = cart[i];
+				TotalQuantity += parseInt(Item[4])
+			}
+			$('.count_item_pr').text(TotalQuantity);
+		}
+	}
+</script>
+<script>
+	function awe_lazyloadImage() {
+		var ll = new LazyLoad({
+			elements_selector: ".lazyload",
+			load_delay: 100,
+			threshold: 0
+		});
+	}
+	window.awe_lazyloadImage = awe_lazyloadImage;
+</script>
+<script>
+	function BindAddToCartEvents() {
+		$('#LV_DataBody').on('click', '.add_to_cart', function (e) {
+			e.preventDefault();
+			console.log('đăng nhập để thêm giỏ hàng')
+		});
+	}
+	function bindAddToCartEvents() {
+		$('#LV_DataBody').on('click', '.add_to_cart', async function (e) {
+			e.preventDefault();
+
+			const productElement = $(this).closest('.product-action');
+			const productKey = productElement.attr('data-id');
+			const productName = productElement.find('.product-name a').text();
+			const productPrice = productElement.find('.price-box').attr('data-price');
+			const productImage = productElement.find('.product-thumbnail img').attr('src');
+
+			try {
+				let existingProduct = CartDetails.find(item => item[3] === productKey);
+				if (existingProduct) {
+					await UpdateCartItemQuantity(existingProduct, parseInt(existingProduct[4]) + 1);
+				} else {
+					await AddToCart(productKey, 1, parseFloat(productPrice));
+				}
+
+				GetCartDetails(CartKey);
+				showPopupNotification(CartDetails.reduce((total, item) => total + parseInt(item[4]), 0), productImage, productName, productPrice);
+			} catch (error) {
+				console.error(error);
+			}
+		});
+	}
+
+	async function UpdateCartItemQuantity(item, newQuantity) {
+		const zDataRequest = {
+			"CartKey": CartKey,
+			"ProductKey": item[3],
+			"Quantity": newQuantity
+		};
+		try {
+			const stockResponse = await $.ajax({
+				type: 'POST',
+				url: '/Product/SanPham?handler=GetStock',
+				contentType: 'application/json',
+				dataType: 'json',
+				data: JSON.stringify({ "ProductKey": item[3] }),
+			});
+			console.log(stockResponse)
+			const stock = stockResponse[0];
+			// Kiểm tra số lượng
+			if (newQuantity > stock) {
+				// Số lượng yêu cầu vượt tồn kho, hiển thị thông báo lỗi
+				alert(`Số lượng yêu cầu (${newQuantity}) vượt quá tồn kho hiện có (${stock}).`);
+				return Promise.reject(`Requested quantity exceeds stock.`);
+			}
+			const updateResponse = await $.ajax({
+				type: 'POST',
+				url: '/GioHang/ChiTietGioHang?handler=UpdateCartQuantity',
+				contentType: 'application/json',
+				dataType: 'json',
+				data: JSON.stringify(zDataRequest),
+			});
+			return updateResponse;
+		}
+		catch (error) {
+			console.error('Lỗi khi cập nhật số lượng:', error);
+			alert('Đã xảy ra lỗi khi cập nhật số lượng. Vui lòng thử lại.');
+			return Promise.reject(error);
+		}
+	}
+
+	async function AddToCart(productKey, quantity, price) {
+		const newProduct = {
+			"CartKey": CartKey,
+			"ProductKey": productKey,
+			"Quantity": quantity,
+			"Price": price
+		};
+		return $.ajax({
+			type: 'POST',
+			url: '/GioHang/ChiTietGioHang?handler=AddToCart',
+			contentType: 'application/json',
+			dataType: 'json',
+			data: JSON.stringify(newProduct),
+		});
+	}
+	function UpdateCartHeader(cart) {
+		$(".CartHeaderContainer").empty();
+		if (!cart || cart.length === 0) {
+			$(".CartHeaderContainer").append('<div class="cart--empty-message" bis_skin_checked="1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 201.387 201.387" style="enable-background:new 0 0 201.387 201.387;" xml:space="preserve"> <g> <g> <path d="M129.413,24.885C127.389,10.699,115.041,0,100.692,0C91.464,0,82.7,4.453,77.251,11.916    c-1.113,1.522-0.78,3.657,0.742,4.77c1.517,1.109,3.657,0.78,4.768-0.744c4.171-5.707,10.873-9.115,17.93-9.115    c10.974,0,20.415,8.178,21.963,19.021c0.244,1.703,1.705,2.932,3.376,2.932c0.159,0,0.323-0.012,0.486-0.034    C128.382,28.479,129.679,26.75,129.413,24.885z"></path> </g> </g> <g> <g> <path d="M178.712,63.096l-10.24-17.067c-0.616-1.029-1.727-1.657-2.927-1.657h-9.813c-1.884,0-3.413,1.529-3.413,3.413    s1.529,3.413,3.413,3.413h7.881l6.144,10.24H31.626l6.144-10.24h3.615c1.884,0,3.413-1.529,3.413-3.413s-1.529-3.413-3.413-3.413    h-5.547c-1.2,0-2.311,0.628-2.927,1.657l-10.24,17.067c-0.633,1.056-0.648,2.369-0.043,3.439s1.739,1.732,2.97,1.732h150.187    c1.231,0,2.364-0.662,2.97-1.732S179.345,64.15,178.712,63.096z"></path> </g> </g> <g> <g> <path d="M161.698,31.623c-0.478-0.771-1.241-1.318-2.123-1.524l-46.531-10.883c-0.881-0.207-1.809-0.053-2.579,0.423    c-0.768,0.478-1.316,1.241-1.522,2.123l-3.509,15c-0.43,1.835,0.71,3.671,2.546,4.099c1.835,0.43,3.673-0.71,4.101-2.546    l2.732-11.675l39.883,9.329l-6.267,26.795c-0.43,1.835,0.71,3.671,2.546,4.099c0.263,0.061,0.524,0.09,0.782,0.09    c1.55,0,2.953-1.062,3.318-2.635l7.045-30.118C162.328,33.319,162.176,32.391,161.698,31.623z"></path> </g> </g> <g> <g> <path d="M102.497,39.692l-3.11-26.305c-0.106-0.899-0.565-1.72-1.277-2.28c-0.712-0.56-1.611-0.816-2.514-0.71l-57.09,6.748    c-1.871,0.222-3.209,1.918-2.988,3.791l5.185,43.873c0.206,1.737,1.679,3.014,3.386,3.014c0.133,0,0.27-0.009,0.406-0.024    c1.87-0.222,3.208-1.918,2.988-3.791l-4.785-40.486l50.311-5.946l2.708,22.915c0.222,1.872,1.91,3.202,3.791,2.99    C101.379,43.261,102.717,41.564,102.497,39.692z"></path> </g> </g> <g> <g> <path d="M129.492,63.556l-6.775-28.174c-0.212-0.879-0.765-1.64-1.536-2.113c-0.771-0.469-1.696-0.616-2.581-0.406L63.613,46.087    c-1.833,0.44-2.961,2.284-2.521,4.117l3.386,14.082c0.44,1.835,2.284,2.964,4.116,2.521c1.833-0.44,2.961-2.284,2.521-4.117    l-2.589-10.764l48.35-11.626l5.977,24.854c0.375,1.565,1.775,2.615,3.316,2.615c0.265,0,0.533-0.031,0.802-0.096    C128.804,67.232,129.932,65.389,129.492,63.556z"></path> </g> </g> <g> <g> <path d="M179.197,64.679c-0.094-1.814-1.592-3.238-3.41-3.238H25.6c-1.818,0-3.316,1.423-3.41,3.238l-6.827,133.12    c-0.048,0.934,0.29,1.848,0.934,2.526c0.645,0.677,1.539,1.062,2.475,1.062h163.84c0.935,0,1.83-0.384,2.478-1.062    c0.643-0.678,0.981-1.591,0.934-2.526L179.197,64.679z M22.364,194.56l6.477-126.293h143.701l6.477,126.293H22.364z"></path> </g> </g> <g> <g> <path d="M126.292,75.093c-5.647,0-10.24,4.593-10.24,10.24c0,5.647,4.593,10.24,10.24,10.24c5.647,0,10.24-4.593,10.24-10.24    C136.532,79.686,131.939,75.093,126.292,75.093z M126.292,88.747c-1.883,0-3.413-1.531-3.413-3.413s1.531-3.413,3.413-3.413    c1.882,0,3.413,1.531,3.413,3.413S128.174,88.747,126.292,88.747z"></path> </g> </g> <g> <g> <path d="M75.092,75.093c-5.647,0-10.24,4.593-10.24,10.24c0,5.647,4.593,10.24,10.24,10.24c5.647,0,10.24-4.593,10.24-10.24    C85.332,79.686,80.739,75.093,75.092,75.093z M75.092,88.747c-1.882,0-3.413-1.531-3.413-3.413s1.531-3.413,3.413-3.413    s3.413,1.531,3.413,3.413S76.974,88.747,75.092,88.747z"></path> </g> </g> <g> <g> <path d="M126.292,85.333h-0.263c-1.884,0-3.413,1.529-3.413,3.413c0,0.466,0.092,0.911,0.263,1.316v17.457    c0,12.233-9.953,22.187-22.187,22.187s-22.187-9.953-22.187-22.187V88.747c0-1.884-1.529-3.413-3.413-3.413    s-3.413,1.529-3.413,3.413v18.773c0,15.998,13.015,29.013,29.013,29.013s29.013-13.015,29.013-29.013V88.747    C129.705,86.863,128.176,85.333,126.292,85.333z"></path> </g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </svg><p>Không có sản phẩm nào trong giỏ hàng của bạn</p></div>');
+		} else {
+			$(".CartHeaderContainer").find(".cart--empty-message").remove();
+			let content = `<form action="" method="" novalidate class="cart ajaxcart cartheader">`
+			content += `<div class="ajaxcart__inner ajaxcart__inner--has-fixed-footer cart_body items">`;
+			let total = 0;
+			for (let i = 0; i < cart.length; i++) {
+				const Item = cart[i];
+				total += parseFloat(Item[7]) * parseInt(Item[4]);
+				content += `
+									<div class="ajaxcart__row">
+										<div class="ajaxcart__product cart_product" data-line="${i}">
+												<a href="ChiTietSanPham/${Item[3]}" class="ajaxcart__product-image cart_image" title="${Item[6]}">
+												<img width="80" height="80" src="${Item[8]}" alt="${Item[6]}">
+											</a>
+											<div class="grid__item cart_info">
+												<div class="ajaxcart__product-name-wrapper cart_name">
+															<a href="ChiTietSanPham/${Item[3]}" class="ajaxcart__product-name h4" title="${Item[6]}">${Item[6]}</a>
+													<a class="cart__btn-remove remove-item-cart ajaxifyCart--remove" data-id="${Item[3]}" data-line="${i}">Xóa</a>
+												</div>
+												<div class="grid">
+													<div class="grid__item one-half cart_select cart_item_name">
+														<label class="cart_quantity">Số lượng</label>
+														<div class="ajaxcart__qty input-group-btn">
+															<button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus items-count" data-id="${Item[3]}" data-qty="1" data-line="${i}" aria-label="-">
+																<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
+																	<path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8"/>
+																</svg>
+															</button>
+															<input type="text" class="ajaxcart__qty-num number-sidebar" maxlength="3" value="${Item[4]}" min="0" data-id="${Item[3]}" data-line="${i}" aria-label="quantity" pattern="[0-9]*">
+																<button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus items-count" data-id="${Item[3]}" data-line="${i}" data-qty="1" aria-label="+">
+																<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+																	<path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+																</svg>
+															</button>
+														</div>
+													</div>
+													<div class="grid__item one-half text-right cart_prices">
+															<span class="cart-price">${VND.format(Item[7])}</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								`;
+			}
+			content += "</div>";
+			content += `
+							<div class="ajaxcart__footer ajaxcart__footer--fixed cart-footer">
+								<div class="ajaxcart__subtotal">
+									<div class="cart__subtotal">
+										<div class="cart__col-6">Tổng tiền:</div>
+										<div class="text-right cart__totle"><span class="total-price">${VND.format(total)}</span></div>
+									</div>
+								</div>
+								<div class="cart__btn-proceed-checkout-dt">
+									<button onclick="location.href='/ThanhToan/checkout'" type="button" class="button btn btn-default cart__btn-proceed-checkout" id="btn-proceed-checkout" title="Thanh toán">Thanh toán</button>
+								</div>
+							</div>
+						`;
+			content += "</form>"
+			$(".CartHeaderContainer").append(content);
+			InitQuantityButtons();
+		}
+	}
+</script>
+
+<script>	
+	function RemoveItemCartHeader() {
+		$(document).off('click', '.cart__btn-remove');
+		$(document).on('click', '.cart__btn-remove', function () {
+			let ProductKey = $(this).data('id');
+			if (!CartKey) {
+				console.error('CartKey is missing');
+				return;
+			}
+			var zDataRequest = {
+				'CartKey': CartKey,
+				'ProductKey': ProductKey
+			}
+			$.ajax({
+				type: 'POST',
+				url: '/GioHang/ChiTietGioHang?handler=DeleteItem',
+				contentType: 'application/json',
+				dataType: 'json',
+				data: JSON.stringify(zDataRequest),
+			})
+				.done(function () {
+					GetCartDetails(CartKey)
+				})
+				.fail(function (error) {
+					console.log(error);
+				});
+		})
+	}
+</script>
+
+
+<script>		
+	function LoadCartPage(Cart) {	
+		var CartPageContainer = $('.CartPageContainer .cartpage')
+		CartPageContainer.empty();
+		console.log("Số lượng: " + Cart.length)
+		if (Cart.length == 0) {
+			CartPageContainer.find('.cartpage').remove();
+			CartPageContainer.append('<div class="cart--empty-message" bis_skin_checked="1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 201.387 201.387" style="enable-background:new 0 0 201.387 201.387;" xml:space="preserve"> <g> <g> <path d="M129.413,24.885C127.389,10.699,115.041,0,100.692,0C91.464,0,82.7,4.453,77.251,11.916    c-1.113,1.522-0.78,3.657,0.742,4.77c1.517,1.109,3.657,0.78,4.768-0.744c4.171-5.707,10.873-9.115,17.93-9.115    c10.974,0,20.415,8.178,21.963,19.021c0.244,1.703,1.705,2.932,3.376,2.932c0.159,0,0.323-0.012,0.486-0.034    C128.382,28.479,129.679,26.75,129.413,24.885z"></path> </g> </g> <g> <g> <path d="M178.712,63.096l-10.24-17.067c-0.616-1.029-1.727-1.657-2.927-1.657h-9.813c-1.884,0-3.413,1.529-3.413,3.413    s1.529,3.413,3.413,3.413h7.881l6.144,10.24H31.626l6.144-10.24h3.615c1.884,0,3.413-1.529,3.413-3.413s-1.529-3.413-3.413-3.413    h-5.547c-1.2,0-2.311,0.628-2.927,1.657l-10.24,17.067c-0.633,1.056-0.648,2.369-0.043,3.439s1.739,1.732,2.97,1.732h150.187    c1.231,0,2.364-0.662,2.97-1.732S179.345,64.15,178.712,63.096z"></path> </g> </g> <g> <g> <path d="M161.698,31.623c-0.478-0.771-1.241-1.318-2.123-1.524l-46.531-10.883c-0.881-0.207-1.809-0.053-2.579,0.423    c-0.768,0.478-1.316,1.241-1.522,2.123l-3.509,15c-0.43,1.835,0.71,3.671,2.546,4.099c1.835,0.43,3.673-0.71,4.101-2.546    l2.732-11.675l39.883,9.329l-6.267,26.795c-0.43,1.835,0.71,3.671,2.546,4.099c0.263,0.061,0.524,0.09,0.782,0.09    c1.55,0,2.953-1.062,3.318-2.635l7.045-30.118C162.328,33.319,162.176,32.391,161.698,31.623z"></path> </g> </g> <g> <g> <path d="M102.497,39.692l-3.11-26.305c-0.106-0.899-0.565-1.72-1.277-2.28c-0.712-0.56-1.611-0.816-2.514-0.71l-57.09,6.748    c-1.871,0.222-3.209,1.918-2.988,3.791l5.185,43.873c0.206,1.737,1.679,3.014,3.386,3.014c0.133,0,0.27-0.009,0.406-0.024    c1.87-0.222,3.208-1.918,2.988-3.791l-4.785-40.486l50.311-5.946l2.708,22.915c0.222,1.872,1.91,3.202,3.791,2.99    C101.379,43.261,102.717,41.564,102.497,39.692z"></path> </g> </g> <g> <g> <path d="M129.492,63.556l-6.775-28.174c-0.212-0.879-0.765-1.64-1.536-2.113c-0.771-0.469-1.696-0.616-2.581-0.406L63.613,46.087    c-1.833,0.44-2.961,2.284-2.521,4.117l3.386,14.082c0.44,1.835,2.284,2.964,4.116,2.521c1.833-0.44,2.961-2.284,2.521-4.117    l-2.589-10.764l48.35-11.626l5.977,24.854c0.375,1.565,1.775,2.615,3.316,2.615c0.265,0,0.533-0.031,0.802-0.096    C128.804,67.232,129.932,65.389,129.492,63.556z"></path> </g> </g> <g> <g> <path d="M179.197,64.679c-0.094-1.814-1.592-3.238-3.41-3.238H25.6c-1.818,0-3.316,1.423-3.41,3.238l-6.827,133.12    c-0.048,0.934,0.29,1.848,0.934,2.526c0.645,0.677,1.539,1.062,2.475,1.062h163.84c0.935,0,1.83-0.384,2.478-1.062    c0.643-0.678,0.981-1.591,0.934-2.526L179.197,64.679z M22.364,194.56l6.477-126.293h143.701l6.477,126.293H22.364z"></path> </g> </g> <g> <g> <path d="M126.292,75.093c-5.647,0-10.24,4.593-10.24,10.24c0,5.647,4.593,10.24,10.24,10.24c5.647,0,10.24-4.593,10.24-10.24    C136.532,79.686,131.939,75.093,126.292,75.093z M126.292,88.747c-1.883,0-3.413-1.531-3.413-3.413s1.531-3.413,3.413-3.413    c1.882,0,3.413,1.531,3.413,3.413S128.174,88.747,126.292,88.747z"></path> </g> </g> <g> <g> <path d="M75.092,75.093c-5.647,0-10.24,4.593-10.24,10.24c0,5.647,4.593,10.24,10.24,10.24c5.647,0,10.24-4.593,10.24-10.24    C85.332,79.686,80.739,75.093,75.092,75.093z M75.092,88.747c-1.882,0-3.413-1.531-3.413-3.413s1.531-3.413,3.413-3.413    s3.413,1.531,3.413,3.413S76.974,88.747,75.092,88.747z"></path> </g> </g> <g> <g> <path d="M126.292,85.333h-0.263c-1.884,0-3.413,1.529-3.413,3.413c0,0.466,0.092,0.911,0.263,1.316v17.457    c0,12.233-9.953,22.187-22.187,22.187s-22.187-9.953-22.187-22.187V88.747c0-1.884-1.529-3.413-3.413-3.413    s-3.413,1.529-3.413,3.413v18.773c0,15.998,13.015,29.013,29.013,29.013s29.013-13.015,29.013-29.013V88.747    C129.705,86.863,128.176,85.333,126.292,85.333z"></path> </g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </svg><p>Không có sản phẩm nào trong giỏ hàng của bạn</p></div>');
+		}
+		else {
+			CartPageContainer.find('.cart--empty-message').remove();
+			var CartPage = $('.CartPageContainer .cartpage')
+			let CartHeader = '<div class="cart-header-info" bis_skin_checked="1"><div bis_skin_checked="1">Thông tin sản phẩm</div><div bis_skin_checked="1">Đơn giá</div><div bis_skin_checked="1">Số lượng</div><div bis_skin_checked="1">Thành tiền</div></div>'
+			CartPage.append(CartHeader)
+			var CartData = ''
+			let total = 0;
+			for (let i = 0; i < Cart.length; i++) {
+				const Item = Cart[i]
+				let Price = parseFloat(Item[7]) * parseInt(Item[4]);
+				total += parseFloat(Item[7]) * parseInt(Item[4]);
+				CartData += `
+							<div class="ajaxcart__inner ajaxcart__inner--has-fixed-footer cart_body items" bis_skin_checked="1">
+								<div class="ajaxcart__row" bis_skin_checked="1">
+									<div class="ajaxcart__product cart_product" data-line="1" bis_skin_checked="1">
+										<a href="/ChiTietSanPham/${Item[3]}" class="ajaxcart__product-image cart_image" title="Pin Sạc Lishen 18650 Li-Ion Rechargeable Battery 3.7V 2000mAh 10C"><img src="${Item[8]}" alt="${Item[6]}"></a>
+										<div class="grid__item cart_info" bis_skin_checked="1">
+											<div class="ajaxcart__product-name-wrapper cart_name" bis_skin_checked="1">
+												<a href="/ChiTietSanPham/${Item[3]}" class="ajaxcart__product-name h4" title="${Item[6]}">${Item[6]}</a>
+												<a class="cart__btn-remove remove-item-cart ajaxifyCart--remove" data-id="${Item[3]}" data-line="${i}">Xóa</a>
+
+											</div>
+											<div class="grid" bis_skin_checked="1">
+												<div class="grid__item one-half text-right cart_prices" bis_skin_checked="1">
+													<span class="cart-price">${VND.format(Item[7])}</span>
+												</div>
+											</div>
+											<div class="grid" bis_skin_checked="1">
+												<div class="grid__item one-half cart_select" bis_skin_checked="1">
+													<div class="ajaxcart__qty input-group-btn" bis_skin_checked="1">
+															<button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus items-count" data-id="${Item[3]}" data-qty="${parseInt(Item[4])-1}" data-line="${i}" aria-label="-">
+															<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
+																<path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8"></path>
+															</svg>
+														</button>
+														<input type="text" class="ajaxcart__qty-num number-sidebar" maxlength="3" value="${Item[4]}" min="0" data-id="${Item[3]}" data-line="${i}" aria-label="quantity" pattern="[0-9]*">
+																<button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus items-count" data-id="${Item[3]}" data-line="${i}" data-qty="1" aria-label="+">
+															<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+																<path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"></path>
+															</svg>
+														</button>
+													</div>
+												</div>
+											</div>
+											<div class="grid" bis_skin_checked="1">
+												<div class="grid__item one-half text-right cart_prices" bis_skin_checked="1">
+													<span class="cart-price">${VND.format(Price)}</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						`
+			}			
+			CartPage.append(CartData)
+			let CartFooter = `<div class="ajaxcart__footer ajaxcart__footer--fixed cart-footer" bis_skin_checked="1">
+											<div class="row" bis_skin_checked="1">
+												<div class="col-lg-4 col-12 offset-md-8 offset-lg-8 offset-xl-8" bis_skin_checked="1">
+													<div class="ajaxcart__subtotal" bis_skin_checked="1">
+														<div class="cart__subtotal" bis_skin_checked="1">
+															<div class="cart__col-6" bis_skin_checked="1">Tổng tiền:</div>
+															<div class="text-right cart__totle" bis_skin_checked="1"><span class="total-price">${VND.format(total)}</span></div>
+														</div>
+													</div>
+													<div class="cart__btn-proceed-checkout-dt" bis_skin_checked="1">
+														<button onclick="location.href='/ThanhToan/checkout'" type="button" class="button btn btn-default cart__btn-proceed-checkout" id="btn-proceed-checkout" title="Thanh toán">Thanh toán</button>
+													</div>
+												</div>
+											</div>
+										</div>`
+			CartPage.append(CartFooter)
+		}
+		InitQuantityButtons()
+	}	
+</script>
+
+<script>
+	// Khởi tạo nút thay đổi số lượng
+	function InitQuantityButtons() {
+		$(document).off('click', '.ajaxcart__qty--minus, .ajaxcart__qty--plus');
+		$(document).on('click', '.ajaxcart__qty--minus, .ajaxcart__qty--plus', async function () {
+			const input = $(this).siblings('.ajaxcart__qty-num');
+			let currentQty = parseInt(input.val()) || 0;
+			let newQuantity = $(this).hasClass('ajaxcart__qty--minus') ? Math.max(currentQty - 1, 0) : currentQty + 1;
+
+			if (newQuantity === 0) {
+				await DeleteItem(this);
+			} else {
+				await UpdateCart(this, newQuantity);
+			}
+		});
+
+		// Lắng nghe sự kiện thay đổi giá trị trong ô input
+		$(document).off('blur', '.ajaxcart__qty-num');
+		$(document).on('blur', '.ajaxcart__qty-num', async function () {
+			const input = $(this);
+			let newQuantity = parseInt(input.val()) || 0;
+			if (newQuantity < 0) newQuantity = 0;
+			const productKey = input.data('id');
+
+			if (newQuantity === 0) {
+				await DeleteItem(input);
+			} else {
+				await UpdateCart(input, newQuantity);
+			}
+		});
+	}
+
+	async function UpdateCart(element, newQuantity) {
+		const productKey = $(element).data('id');
+		const zDataRequest = { "CartKey": CartKey, "ProductKey": productKey, "Quantity": newQuantity };
+
+		try {
+			// Kiểm tra tồn kho trước khi cập nhật
+			const stockResponse = await $.ajax({
+				type: 'POST',
+				url: '/Product/SanPham?handler=GetStock',
+				contentType: 'application/json',
+				dataType: 'json',
+				data: JSON.stringify({ "ProductKey": productKey }),
+			});
+
+			const stock = stockResponse[0];
+
+			// Kiểm tra nếu số lượng yêu cầu vượt tồn kho
+			if (newQuantity > stock) {
+				alert(`Số lượng yêu cầu (${newQuantity}) vượt quá tồn kho hiện có (${stock}).`);
+				return; // Không tiếp tục nếu vượt quá tồn kho
+			}
+
+			// Tiến hành cập nhật nếu hợp lệ
+			await $.ajax({
+				type: 'POST',
+				url: '/GioHang/ChiTietGioHang?handler=UpdateCartQuantity',
+				contentType: 'application/json',
+				dataType: 'json',
+				data: JSON.stringify(zDataRequest),
+			});
+
+			// Cập nhật lại giao diện giỏ hàng
+			GetCartDetails(CartKey);
+		} catch (error) {
+			console.error('Lỗi khi cập nhật giỏ hàng:', error);
+			alert('Đã xảy ra lỗi khi cập nhật giỏ hàng. Vui lòng thử lại.');
+		}
+	}
+	async function DeleteItem(element) {
+		const productKey = $(element).data('id');
+		const zDataRequest = { "CartKey": CartKey, "ProductKey": productKey };
+
+		try {
+			await $.ajax({
+				type: 'POST',
+				url: '/GioHang/ChiTietGioHang?handler=DeleteItem',
+				contentType: 'application/json',
+				dataType: 'json',
+				data: JSON.stringify(zDataRequest),
+			});
+			GetCartDetails(CartKey);
+		} catch (error) {
+			console.error(error);
+		}
+	}
+</script>

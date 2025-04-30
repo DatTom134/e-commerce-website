@@ -1,0 +1,534 @@
+﻿@page
+@model TNS_ThanhToan.Areas.ThanhToan.Pages.CheckOutModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/dist/css/checkout.min.css" rel="stylesheet" asp-append-version="true" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <title>Thanh Toán</title>
+    <style>
+        .product-item {
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+
+        .product-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .product-name {
+            color: #333;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .product-price {
+            font-size: 0.85rem;
+        }
+
+        .order-summary {
+            position: sticky;
+            bottom: 0;
+            background: white;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .products-container {
+            max-height: calc(100vh - 350px);
+            overflow-y: auto;
+        }
+
+        .products-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .products-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .products-container::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 3px;
+        }
+
+        .products-container::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .quantity-btn {
+            padding: 0px 8px;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .quantity-input {
+            width: 40px;
+            text-align: center;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 2px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="container mt-5 col-6">
+                <h2 class="text-center mb-4">Thanh Toán</h2>
+
+                <!-- Form Thanh Toán -->
+                <form id="orderForm" method="post" asp-page="/ThanhToan/CheckOut">
+                    @Html.AntiForgeryToken()
+
+                    <!-- Trường ẩn để lưu UserID -->
+                    <input type="hidden" id="UserID" name="UserID">
+
+                    <!-- Họ và tên -->
+                    <div class="mb-3">
+                        <label for="Name" class="form-label">Họ và tên</label>
+                        <input type="text" id="Name" name="Name" class="form-control" readonly required>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label for="Email" class="form-label">Email</label>
+                            <input type="email" id="Email" name="Email" class="form-control" readonly required>
+                        </div>
+
+                        <!-- Số điện thoại -->
+                        <div class="mb-3">
+                            <label for="Phone" class="form-label">Số điện thoại</label>
+                            <input type="text" id="Phone" value="" name="Phone" class="form-control" pattern="^\d{10}$"
+                                required>
+                            <small class="form-text text-muted">Vui lòng nhập số điện thoại gồm 10 chữ số.</small>
+                        </div>
+                    </div>
+
+                    <!-- Địa chỉ -->
+                    <div class="mb-3">
+                        <label for="city" class="form-label">Tỉnh/Thành phố</label>
+                        <select id="city" class="form-select" required>
+                            <option value="" selected>Chọn Tỉnh/Thành phố</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="district" class="form-label">Quận/Huyện</label>
+                        <select id="district" class="form-select" required>
+                            <option value="" selected>Chọn Quận/Huyện</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="ward" class="form-label">Phường/Xã</label>
+                        <select id="ward" class="form-select" required>
+                            <option value="" selected>Chọn Phường/Xã</option>
+                        </select>
+                    </div>
+
+                    <!-- Phương thức thanh toán -->
+                    <div class="mb-3">
+                        <label class="form-label">Phương thức thanh toán</label>
+                        <select id="PaymentMethod" class="form-select">
+                            <option value="0">Thanh toán online</option>
+                            <option value="1" selected>Thanh toán offline</option>
+                        </select>
+                    </div>
+
+                    <!-- Ghi chú -->
+                    <div class="mb-3">
+                        <label for="Note" class="form-label">Ghi chú (Tùy chọn)</label>
+                        <textarea id="Note" name="Note" class="form-control" rows="3"></textarea>
+                    </div>
+
+                    <!-- Nút Submit -->
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Đặt Hàng</button>
+                    </div>
+                </form>
+            </div>
+            <!-- Phần hiển thị đơn hàng bên phải -->
+            <div class="container mt-5 col-6">
+                <div class="card">
+                    <div class="card-header bg-white">
+                        <h4 class="text-center mb-0">Đơn hàng của bạn</h4>
+                    </div>
+                    <div class="card-body p-0">
+                        <!-- Danh sách sản phẩm -->
+                        <div class="products-container p-3">
+                            <!-- Sản phẩm sẽ được thêm vào đây bằng JavaScript -->
+                        </div>
+
+                        <!-- Phần tổng chi phí -->
+                        <div class="order-summary p-3 bg-white border-top">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Tạm tính:</span>
+                                <span id="subtotal" data-subtotal="">0₫</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Phí vận chuyển:</span>
+                                <span id="shipping">30.000₫</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Giảm giá:</span>
+                                <span id="discount" class="text-success">0₫</span>
+                            </div>
+                            <div class="d-flex justify-content-between mt-2  border-top">
+                                <h5>Tổng cộng:</h5>
+                                <h5 id="total" class="text-primary">0₫</h5>
+                            </div>
+                            <div class="d-flex justify-content-between mt-2">
+                                <a href="/GioHang/ChiTietGioHang" class="previous-link">
+                                    <i class="previous-link__arrow">❮</i>
+                                    <span class="previous-link__content">Quay về giỏ hàng</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var zForm = [];
+        var username = $('#Name');
+        var email = $('#Email');
+        var phone = $('#Phone');
+
+        // Kiểm tra đăng nhập qua AJAX
+        function checkUserLogin() {
+            var Email = "@User.FindFirst(System.Security.Claims.ClaimTypes.Email)?.Value";
+
+            if (!Email) {
+                console.error("Email không tồn tại. Người dùng có thể chưa đăng nhập.");
+                return;
+            }
+
+            var zDataRequest = {
+                "Email": Email
+            };
+
+            // alert(zDataRequest.Email);
+            $.ajax({
+                url: "/Product/SanPham?handler=GetUser",
+                type: 'POST',
+                contentType: "application/json",
+                data: JSON.stringify(zDataRequest),
+                success: function (response) {
+                    UserID = response[0][0];
+                    zForm.push(response[0][1]);
+                    zForm.push(response[0][3]);
+                    zForm.push(response[0][4]);
+                    load_data_to_field(zForm);
+                    GetCart(UserID);
+                },
+                error: function (error) {
+                    console.log(error.responseText);
+                }
+            });
+        }
+
+        function load_data_to_field(data) {
+            console.log("data", data);
+
+            username.val(data[0]);
+            email.val(data[1]);
+            phone.val(data[2]);
+
+        }
+
+
+        // Tải danh sách Tỉnh/Thành phố, Quận/Huyện, Phường/Xã
+        const citySelect = document.getElementById("city");
+        const districtSelect = document.getElementById("district");
+        const wardSelect = document.getElementById("ward");
+
+        $.ajax({
+            url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json",
+            method: "GET",
+            dataType: "json",
+            success: function (data) {
+                populateCities(data);
+            },
+            error: function (error) {
+                console.error("Error fetching data:", error);
+            }
+        });
+
+        function populateCities(data) {
+            data.forEach(city => {
+                citySelect.append(new Option(city.Name, city.Id));
+            });
+
+            citySelect.addEventListener("change", function () {
+                populateDistricts(data);
+            });
+        }
+
+        function populateDistricts(data) {
+
+            const selectedCityId = citySelect.value;
+            const selectedCity = data.find(city => city.Id === selectedCityId);
+
+            if (selectedCity) {
+                selectedCity.Districts.forEach(district => {
+                    districtSelect.append(new Option(district.Name, district.Id));
+                });
+
+                districtSelect.addEventListener("change", function () {
+                    populateWards(selectedCity);
+                });
+            }
+        }
+
+        function populateWards(selectedCity) {
+
+            const selectedDistrictId = districtSelect.value;
+            const selectedDistrict = selectedCity.Districts.find(district => district.Id === selectedDistrictId);
+
+            if (selectedDistrict) {
+                selectedDistrict.Wards.forEach(ward => {
+                    wardSelect.append(new Option(ward.Name, ward.Id));
+                });
+            }
+        }
+
+        // Xử lý submit form, gộp địa chỉ
+        document.getElementById("orderForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            // lấy ra tỉnh/thành phố | quận/huyện | xã/phường
+            const city = citySelect.options[citySelect.selectedIndex]?.text || "";
+            const district = districtSelect.options[districtSelect.selectedIndex]?.text || "";
+            const ward = wardSelect.options[wardSelect.selectedIndex]?.text || "";
+            // full address
+            const fullAddress = `${ward}, ${district}, ${city}`;
+            const price = $('#subtotal').attr('data-subtotal');
+            const PaymentMethod = document.querySelector('#PaymentMethod').value;
+            console.log(UserID);
+
+            zFormRequest = {
+                "UserID": UserID,
+                "ShippingAddress": fullAddress,
+                "TotalAmount": parseFloat(price),
+                "PaymentMethod": PaymentMethod
+            }
+            console.log(zFormRequest);
+            console.log(zFormRequest.totalAmount);
+
+
+            $.ajax({
+                type: 'POST',
+                url: '/ThanhToan/CheckOut?handler=SubmitOrder',
+                contentType: 'application/json',
+                data: JSON.stringify(zFormRequest),
+                success: function (repsonse) {
+                    // console.log(repsonse.success);
+                    if (repsonse.success) {
+                        alert("đơn hàng của bạn đã đặt thành công");
+                    }
+                },
+                error: function (err) {
+                    console.log("Error:", err.responseText)
+                }
+            });
+        });
+
+        // Gọi các hàm khi tải trang
+        document.addEventListener("DOMContentLoaded", function () {
+            var isAuthenticated = @User.Identity?.IsAuthenticated.ToString().ToLower(); // Trạng thái đăng nhập
+            if (isAuthenticated) {
+                checkUserLogin(); // Kiểm tra đăng nhập
+            } else {
+                alert("Bạn cần đăng nhập để tiếp tục.");
+                window.location.href = "/Account/Login";
+            }
+            phone.on('input', function () {
+                // ràng buộc người dùng chỉ nhập số
+                $(this).val($(this).val().replace(/[^0-9]/g, ''));
+
+                // ràng buộc người dùng chỉ nhập tối đa 10 số
+                if ($(this).val().length > 11) {
+                    $(this).val($(this).val().substring(0, 11));
+                }
+            });
+        });
+
+
+        // lấy cart_id của của người dùng
+        async function GetCart(UserID) {
+            const zDataRequest = { "UserID": UserID };
+            try {
+                const dataResponse = await $.ajax({
+                    type: 'POST',
+                    url: "/GioHang/ChiTietGioHang?handler=GetCart",
+                    data: JSON.stringify(zDataRequest),
+                    contentType: "application/json",
+                    dataType: "json",
+                });
+                Cart = dataResponse;
+                CartKey = dataResponse[0][0];
+                await GetCartDetails(CartKey);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        // lấy được chi tiết giỏ hàng của user qua cart_id
+        async function GetCartDetails(CartKey) {
+            const zDataRequest = { "UserID": UserID };
+            try {
+                const dataResponse = await $.ajax({
+                    type: 'POST',
+                    url: "/GioHang/ChiTietGioHang?handler=GetCartDetails",
+                    data: JSON.stringify(zDataRequest),
+                    contentType: "application/json",
+                    dataType: "json",
+                });
+                CartDetails = dataResponse;
+                console.log(CartDetails);
+                renderProducts(CartDetails, '.products-container');
+                // await LoadCartPage(CartDetails);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+    </script>
+
+
+    <script>
+        var isAuthenticated = @User.Identity?.IsAuthenticated.ToString().ToLower();
+        var UserID = '';
+        var CartKey = '';
+        var Cart
+        var CartDetails = []
+        const VND = new Intl.NumberFormat('vi-VN', {
+            style: 'currency',
+            currency: 'VND',
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            if (isAuthenticated) {
+
+            }
+
+
+            if (UserID !== "" || UserID === null) {
+            }
+            else {
+            }
+        });
+    </script>
+
+
+
+
+    <!--=========================================== SCRIPT LOGIC TÍNH TOÁN ===========================================-->
+    <script>
+        // Hàm tạo và render danh sách sản phẩm
+        function renderProducts(products, containerSelector) {
+            // Lấy container bằng jQuery
+            const $container = $(containerSelector);
+
+            // Kiểm tra xem container có tồn tại không
+            if ($container.length === 0) {
+                console.error("Container không tồn tại!");
+                return;
+            }
+
+            // Làm rỗng container trước khi thêm nội dung mới
+            $container.empty();
+            let totalAmount = 0;
+            let feeship = 30000
+            // Tạo nội dung HTML từ danh sách sản phẩm
+            const productHTML = products
+                .map((product, index) => {
+                    const key = product[0];
+                    const price = parseInt(product[7]);
+                    const name = product[6];
+                    const image = product[8];
+                    const quantity = parseInt(product[4]);
+                    totalAmount += price * quantity;
+
+                    return `
+                        <table class="product-table" id="product-table">
+                            <thead class="product-table__header">
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="product">
+                                    <td class="product__image">
+                                        <div class="product-thumbnail">
+                                            <div class="product-thumbnail__wrapper">
+                                                <img src="${image}" alt="${name}" class="img-fluid"/>
+                                            </div>
+                                            <span class="product-thumbnail__quantity">${quantity}</span>
+                                        </div>
+                                    </td>
+                                    <th class="product__description">
+                                        <span class="product__description__name">${name}</span>
+                                    </th>
+                                    <td class="product__quantity visually-hidden">
+                                        <em>
+                                            Số lượng:
+                                        </em>
+                                        ${quantity}
+                                    </td>
+                                    <td class="product__price">${VND.format(price)}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    `;
+                })
+                .join('');
+
+            // Thêm nội dung vào container
+            $container.html(productHTML);
+
+            $subtotal = $('#subtotal').html(VND.format(totalAmount))
+            $('#subtotal').attr('data-subtotal', totalAmount);
+            totalAmount = totalAmount + feeship
+            $total = $('#total').html(VND.format(totalAmount))
+        }
+
+        // Hàm định dạng tiền tệ
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('vi-VN', {
+                style: 'currency',
+                currency: 'VND'
+            }).format(amount);
+        }                
+    </script>
+
+
+
+    <!-- Bootstrap JS -->
+    @* <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>  *@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+</body>

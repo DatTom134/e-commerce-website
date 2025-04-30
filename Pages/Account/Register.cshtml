@@ -1,0 +1,353 @@
+﻿@page
+@model TNS_Ecommerce.Pages.Account.RegisterModel
+@{
+}
+<head>
+	<meta charset="UTF-8" />
+	<meta name="theme-color" content="#000f8f" />
+ 	<meta name='revisit-after' content='2 days' />
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="robots" content="noodp,index,follow" />
+	<meta name="description" content="">
+	<title>Đăng ký tài khoản </title>
+	<meta name="keywords" content="Đăng ký tài khoản, TNS - Linh kiện, TNS" />
+
+
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Đăng ký tài khoản">
+	<meta property="og:image" content="~/imgs/logo_tns.png">
+	<meta property="og:image:secure_url" content="~/imgs/logo_tns.png">
+
+	<meta property="og:description" content="">
+ 	<meta property="og:site_name" content="TNS - Linh kiện">
+	<link rel="icon" href="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/favicon.png?1728231402463"
+		  type="image/x-icon" />
+	@* <link rel="preload" as="script" 
+		 href="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/jquery.js?1728231402463" /> *@
+	@* <script src="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/jquery.js?1728231402463"
+			type="text/javascript"></script> *@
+	<link rel="preload" as="script"
+		  href="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/cookie.js?1728231402463" />
+	<script src="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/cookie.js?1728231402463"
+			type="text/javascript"></script>
+	<link rel="preload" as="script"
+		  href="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/swiper.js?1728231402463" />
+	<script src="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/swiper.js?1728231402463"
+			type="text/javascript"></script>
+	<link rel="preload" as="script" href="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/lazy.js?1728231402463" />
+	<script src="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/lazy.js?1728231402463"
+			type="text/javascript"></script>
+	<link rel="preload" as='style' type="text/css"
+		  href="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/main.scss.css?1728231402463">
+
+	<link rel="preload" as='style' type="text/css"
+		  href="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/bootstrap-4-3-min.css?1728231402463">
+
+	<link href="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/bootstrap-4-3-min.css?1728231402463"
+		  rel="stylesheet" type="text/css" media="all" />
+	<link href="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/main.scss.css?1728231402463" rel="stylesheet"
+		  type="text/css" media="all" />
+
+
+	<link href="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/breadcrumb_style.scss.css?1728231402463"
+		  rel="stylesheet" type="text/css" media="all" />
+
+	<link href="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/paginate.scss.css?1728231402463" rel="stylesheet"
+		  type="text/css" media="all" />
+
+	<link href="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/account_oder_style.scss.css?1728231402463"
+		  rel="stylesheet" type="text/css" media="all" />
+
+ 
+ 
+ 
+	@* <script src="/dist/js/stats.min.js?v=96f2ff2"></script> *@
+
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-QX6975439G"></script>
+	<script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-QX6975439G');</script>
+	<script>
+
+		window.enabled_enhanced_ecommerce = false;
+
+	</script>
+
+	<script>
+		var eventsListenerScript = document.createElement('script');
+		eventsListenerScript.async = true;
+
+		// eventsListenerScript.src = "/dist/js/store_events_listener.min.js?v=8ee4227";
+
+		document.getElementsByTagName('head')[0].appendChild(eventsListenerScript);
+	</script>
+
+
+
+
+
+
+	<script src="//bizweb.dktcdn.net/assets/themes_support/bizweb-api.js" type="text/javascript"></script>
+	<script src="//bizweb.dktcdn.net/assets/themes_support/common.js" type="text/javascript"></script>
+	<script src="//bizweb.dktcdn.net/assets/themes_support/customer.js" type="text/javascript"></script>
+
+
+	 
+	<script>
+		$(document).ready(function ($) {
+			awe_lazyloadImage();
+		});
+		function awe_lazyloadImage() {
+			var ll = new LazyLoad({
+				elements_selector: ".lazyload",
+				load_delay: 100,
+				threshold: 0
+			});
+		} window.awe_lazyloadImage = awe_lazyloadImage;
+	</script>
+</head>
+
+<body>
+	<div class="opacity_menu"></div>	
+	<div class="bodywrap">
+		<section class="bread-crumb">
+			<div class="container">
+				<ul class="breadcrumb">
+					<li class="home">
+						<a href="/"><span>Trang chủ</span></a>
+						<span class="mr_lr">
+							&nbsp;
+							<svg aria-hidden="true" focusable="false" data-prefix="fas"
+								 data-icon="chevron-right" role="img" xmlns="http://www.w3.org/2000/svg"
+								 viewBox="0 0 320 512" class="svg-inline--fa fa-chevron-right fa-w-10">
+								<path fill="currentColor"
+									  d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+									  class=""></path>
+							</svg>&nbsp;
+						</span>
+					</li>
+
+					<li><strong><span>Đăng ký tài khoản</span></strong></li>
+
+				</ul>
+			</div>
+		</section>
+		<section class="section">
+			<div class="container">
+				<div class="wrap_background_aside page_login">
+					<div class="row">
+						<div style="margin: auto;"
+							 class="col-lg-4 col-md-6 col-sm-12 col-12 col-xl-4 offset-xl-4 offset-lg-4 offset-md-3 offset-xl-3 ">
+							<div class="row no-margin align-items-center block-background">
+								<div class="page-login pagecustome clearfix no-padding">
+									<div class="wpx">
+										<ul class="auth-block__menu-list">
+											<li class="active">
+												<a href="~/Account/login" title="Đăng ký">Đăng nhập</a>
+											</li>
+											<li>
+												<a href="#" title="Đăng ký">Đăng ký</a>
+											</li>	
+										</ul>
+										<h1 class="title_heads a-center"><span>Đăng ký</span></h1>
+										<div id="login" class="section">
+											<form onsubmit="return false;" id="customer_login"
+												  accept-charset="UTF-8">
+												<input name="FormType" type="hidden"
+													   value="customer_login" /><input name="utf8" type="hidden"
+														value="true" />
+												<span class="form-signup" style="color:red;">
+
+												</span>
+												<div class="form-signup clearfix">
+													<fieldset class="form-group">
+														<input type="email"
+															   pattern="[a-z0-9._%+-]+[a-z0-9.-]+\.[a-z]{2,63}$"
+															   class="form-control form-control-lg" value="" name="Name"
+															   id="name" placeholder="Tên người dùng" Required>
+													</fieldset>
+													<fieldset class="form-group">
+														<input type="email"
+															   pattern="[a-z0-9._%+-]+[a-z0-9.-]+\.[a-z]{2,63}$"
+															   class="form-control form-control-lg" value="" name="email"
+															   id="email" placeholder="Email" Required>
+													</fieldset>
+													<fieldset class="form-group">
+														<input type="password" class="form-control form-control-lg"
+															   value="" name="password" id="password"
+															   placeholder="Nhập mật khẩu" Required>
+													</fieldset>
+													<fieldset class="form-group">
+														<input type="password" class="form-control form-control-lg"
+															   value="" name="password" id="rpassword"
+															   placeholder="Nhập lại mật khẩu" Required>
+													</fieldset>
+													<div class="pull-xs-left">
+														<button class="btn btn-style btn_50" id="registerButton">Đăng Ký</button>
+													</div>
+
+												</div>
+											</form>
+										</div>
+
+										<div class="h_recover" style="display:none;">
+											<div id="recover-password" class="form-signup page-login">
+												<form method="post" action="/account/recover"
+													  id="recover_customer_password" accept-charset="UTF-8">
+													<input name="FormType" type="hidden"
+														   value="recover_customer_password" /><input name="utf8"
+																									  type="hidden" value="true" />
+													<div class="form-signup" style="color: red;">
+													</div>
+													<div class="form-signup clearfix">
+														<fieldset class="form-group">
+															<input type="email"
+																   pattern="[a-z0-9._%+-]+[a-z0-9.-]+\.[a-z]{2,63}$"
+																   class="form-control form-control-lg" value=""
+																   name="Email" id="recover-email" placeholder="Email"
+																   Required>
+														</fieldset>
+													</div>
+ 	
+													<div class="action_bottom">
+														<input class="btn btn-style btn_50" style="margin-top: 0px;"
+															   type="submit" value="Lấy lại mật khẩu" />
+													</div>
+												</form>
+											</div>
+										</div>
+										<div class="block social-login--facebooks">
+											<p class="a-center">
+												Hoặc đăng nhập bằng
+											</p>
+											 
+											<a href="javascript:void(0)" class="social-login--facebook"
+
+											   onclick=" ">
+												<img width="129px" height="37px"
+													 alt="facebook-login-button"
+													 src="//bizweb.dktcdn.net/assets/admin/images/login/fb-btn.svg">
+											</a>
+											<a href="/login-google" class="social-login--google"
+											   onclick=" ">
+												<img width="129px" height="37px"
+													 alt="google-login-button"
+													 src="//bizweb.dktcdn.net/assets/admin/images/login/gp-btn.svg">
+											</a>											 
+										</div>
+									</div>
+
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</section>
+ </div>
+ 
+	<script>
+		(function ($) { "use strict"; $.ajaxChimp = { responses: { "We have sent you a confirmation email": 0, "Please enter a valueggg": 1, "An email address must contain a single ": 2, "The domain portion of the email address is invalid (the portion after the : )": 3, "The username portion of the email address is invalid (the portion before the : )": 4, "This email address looks fake or invalid. Please enter a real email address": 5 }, translations: { en: null }, init: function (selector, options) { $(selector).ajaxChimp(options) } }; $.fn.ajaxChimp = function (options) { $(this).each(function (i, elem) { var form = $(elem); var email = form.find("input[type=email]"); var label = form.find("label[for=" + email.attr("id") + "]"); var settings = $.extend({ url: form.attr("action"), language: "en" }, options); var url = settings.url.replace("/post?", "/post-json?").concat("&c=?"); form.attr("novalidate", "true"); email.attr("name", "EMAIL"); form.submit(function () { var msg; function successCallback(resp) { if (resp.result === "success") { msg = "We have sent you a confirmation email"; label.removeClass("error").addClass("valid"); email.removeClass("error").addClass("valid") } else { email.removeClass("valid").addClass("error"); label.removeClass("valid").addClass("error"); var index = -1; try { var parts = resp.msg.split(" - ", 2); if (parts[1] === undefined) { msg = resp.msg } else { var i = parseInt(parts[0], 10); if (i.toString() === parts[0]) { index = parts[0]; msg = parts[1] } else { index = -1; msg = resp.msg } } } catch (e) { index = -1; msg = resp.msg } } if (settings.language !== "en" && $.ajaxChimp.responses[msg] !== undefined && $.ajaxChimp.translations && $.ajaxChimp.translations[settings.language] && $.ajaxChimp.translations[settings.language][$.ajaxChimp.responses[msg]]) { msg = $.ajaxChimp.translations[settings.language][$.ajaxChimp.responses[msg]] } label.html(msg); label.show(2e3); if (settings.callback) { settings.callback(resp) } } var data = {}; var dataArray = form.serializeArray(); $.each(dataArray, function (index, item) { data[item.name] = item.value }); $.ajax({ url: url, data: data, success: successCallback, dataType: "jsonp", error: function (resp, text) { console.log("mailchimp ajax submit error: " + text) } }); var submitMsg = "Submitting..."; if (settings.language !== "en" && $.ajaxChimp.translations && $.ajaxChimp.translations[settings.language] && $.ajaxChimp.translations[settings.language]["submit"]) { submitMsg = $.ajaxChimp.translations[settings.language]["submit"] } label.html(submitMsg).show(2e3); return false }) }); return this } })(jQuery);
+
+	</script>
+
+	<script>
+		function showLoginForm() {
+			document.getElementById('login-form').classList.remove('hidden');
+			document.getElementById('register-form').classList.add('hidden');
+			document.getElementById('login-tab').classList.add('active');
+			document.getElementById('register-tab').classList.remove('active');
+		}
+
+		function showRegisterForm() {
+			document.getElementById('register-form').classList.remove('hidden');
+			document.getElementById('login-form').classList.add('hidden');
+			document.getElementById('register-tab').classList.add('active');
+			document.getElementById('login-tab').classList.remove('active');
+		}
+
+	</script>
+	
+	<link rel="preload" as="style"
+		  href="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/ajaxcart.scss.css?1728231402463" type="text/css">
+	<link href="//bizweb.dktcdn.net/100/522/662/themes/958202/assets/ajaxcart.scss.css?1728231402463" rel="stylesheet"
+		  type="text/css" media="all" />
+	<div class="backdrop__body-backdrop___1rvky"></div>
+
+
+	<script>
+		$(document).ready(function () {
+			$('.signin-form').submit(function (e) {
+				// Lấy giá trị của mật khẩu và xác nhận mật khẩu từ các trường input
+				var password = $('#password').val();
+				var confirmPassword = $('#confirmPassword').val();
+
+				// Kiểm tra xem mật khẩu và xác nhận mật khẩu có khớp nhau không
+				if (password !== confirmPassword) {
+					// Nếu không khớp, hiển thị thông báo và ngăn form submit
+					alert('Mật khẩu và xác nhận mật khẩu không khớp.');
+					e.preventDefault(); // Ngăn form submit nếu mật khẩu không khớp
+				}
+			});
+		});
+	</script>
+
+	<script>
+		$(document).ready(function () {
+			$('#registerButton').click(function (event) {
+				event.preventDefault(); // Ngăn hành động mặc định của nút
+
+				// Lấy giá trị từ các trường input
+				const username = $('#name').val();
+				const email = $('#email').val();
+				const password = $('#password').val();
+				const confirmPassword = $('#rpassword').val();
+
+				// Kiểm tra dữ liệu đầu vào
+				if (!username || !email || !password || !confirmPassword) {
+					return;
+				}
+				if (password !== confirmPassword) {
+					return;
+				}
+
+				// Gửi AJAX
+				const requestData = {
+					TenDangNhap: username,
+					Email: email,
+					MatKhau: password,
+					XacNhanMatKhau: confirmPassword
+				};
+
+				console.log('trước hàm thực hiện ajax' + requestData);
+				$.ajax({
+					url: '/Account/Register?handler=Register',
+					method: 'POST',
+					contentType: 'application/json',
+					data: JSON.stringify(requestData), 
+
+					success: function (response) {
+						console.log(response);
+						if (response) {
+							// setTimeout(() => {
+							// 	window.location.href = "/Account/Login";
+							// }, 2000);
+						}
+					},
+					error: function ( error) {
+						console.error('Error:', error);  // Basic error logging
+						console.log('Error responseText:', error.responseText);  // The error response
+						console.log('Error status:', error.status);  // HTTP status code
+						console.log('Error statusText:', error.statusText); // Error description
+						console.log(error.message);
+						}
+				});
+			});
+		});
+	</script>
+
+
+</body>
+

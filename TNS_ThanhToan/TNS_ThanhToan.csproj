@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Areas\ThanhToan\Pages\API.cshtml.cs" />
+    <Compile Remove="Areas\ThanhToan\Pages\TaskAll.cshtml.cs" />
+    <Compile Remove="Areas\ThanhToan\Pages\TaskDelivery.cshtml.cs" />
+    <Compile Remove="Areas\ThanhToan\Pages\TaskEdit.cshtml.cs" />
+    <Compile Remove="Areas\ThanhToan\Pages\TaskNew.cshtml.cs" />
+    <Compile Remove="Areas\ThanhToan\Pages\TaskProcess.cshtml.cs" />
+    <Compile Remove="Areas\ThanhToan\Pages\TaskReceive.cshtml.cs" />
+    <Compile Remove="Areas\ThanhToan\Pages\TasksEmployee.cshtml.cs" />
+    <Compile Remove="Areas\ThanhToan\Pages\TaskShared.cshtml.cs" />
+    <Compile Remove="Areas\ThanhToan\Pages\TaskSharedProcess.cshtml.cs" />
+    <Compile Remove="Areas\ThanhToan\Pages\UploadFile.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Areas\ThanhToan\Pages\API.cshtml" />
+    <Content Remove="Areas\ThanhToan\Pages\TaskAll.cshtml" />
+    <Content Remove="Areas\ThanhToan\Pages\TaskDelivery.cshtml" />
+    <Content Remove="Areas\ThanhToan\Pages\TaskEdit.cshtml" />
+    <Content Remove="Areas\ThanhToan\Pages\TaskNew.cshtml" />
+    <Content Remove="Areas\ThanhToan\Pages\TaskProcess.cshtml" />
+	<Content Remove="Areas\ThanhToan\Pages\TaskReceive.cshtml" />
+	<Content Remove="Areas\ThanhToan\Pages\TasksEmployee.cshtml" />
+    <Content Remove="Areas\ThanhToan\Pages\TaskShared.cshtml" />
+    <Content Remove="Areas\ThanhToan\Pages\TaskSharedProcess.cshtml" />
+    <Content Remove="Areas\ThanhToan\Pages\UploadFile.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TNS.DBConnection\TNS.DBConnection.csproj" />
+  </ItemGroup>
+
+
+
+</Project>

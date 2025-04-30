@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Code\ThuongMaiDienThu\TNS_Ecommerce\TNS_Ecommerce\bin\Release\net6.0\publish\</_PublishTargetUrl>
+    <History>True|2024-10-16T07:18:01.1738731Z||;True|2024-10-16T14:17:45.2378533+07:00||;True|2024-10-16T10:56:23.8484560+07:00||;True|2024-10-16T10:10:09.2161384+07:00||;True|2024-10-16T10:03:35.8504326+07:00||;True|2024-10-16T09:51:01.9001004+07:00||;True|2024-10-04T14:52:29.7820550+07:00||;True|2024-10-01T22:19:56.2927514+07:00||;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>
